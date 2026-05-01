@@ -1,206 +1,639 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bodhi Dragon Tour and Travel — Buddhist Pilgrimage Journeys</title>
-<meta name="description" content="Mindful, well-led Buddhist pilgrimage tours to Bodhgaya, Sarnath, Lumbini, Kushinagar and beyond.">
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bodhi Dragon — Sacred journeys through Buddhist heartlands</title>
 <link rel="stylesheet" href="styles.css">
+<style>
+  *,*::before,*::after{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  img{max-width:100%;display:block;}
+  button{font:inherit;cursor:pointer;}
+
+  .container{max-width:var(--container-max);margin:0 auto;padding:0 var(--container-pad);}
+
+  /* ============ NAV ============ */
+  .nav{position:sticky;top:0;z-index:50;background:#0E1B16;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;border-bottom:1px solid rgba(245,203,0,0.18);box-shadow:0 1px 0 rgba(245,203,0,0.06) inset;}
+  .nav-inner{display:flex;align-items:center;gap:36px;height:84px;}
+  .logo{display:inline-flex;align-items:center;gap:14px;font-family:var(--font-display);font-weight:600;font-size:22px;color:#fff;text-decoration:none;letter-spacing:-0.005em;}
+  .logo img{height:60px;width:auto;display:block;flex:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.4));}
+  .logo .logo-word{display:flex;flex-direction:column;line-height:1;}
+  .logo .logo-word .lw-1{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:0.18em;color:#F1D27A;}
+  .logo .logo-word .lw-2{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.32em;color:#9C7A2E;text-transform:uppercase;margin-top:5px;}
+  .nav-links{display:flex;gap:28px;font-size:14px;font-weight:500;}
+  .nav-links a{position:relative;color:rgba(255,255,255,0.78);padding:6px 0;transition:color var(--dur-fast) var(--ease-standard);}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--color-dharma-gold);transition:width var(--dur-base) var(--ease-standard);}
+  .nav-links a:hover{color:var(--color-dharma-gold);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-links a.active{color:var(--color-dharma-gold);}
+  .nav-links a.active::after{width:100%;}
+  .nav-cta{margin-left:auto;}
+  .nav-toggle{display:none;background:transparent;border:0;color:#fff;padding:8px;}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-body);font-weight:500;font-size:14px;padding:13px 24px;border-radius:var(--radius-pill);border:0;line-height:1;text-decoration:none;transition:background var(--dur-fast) var(--ease-standard),color var(--dur-fast) var(--ease-standard),box-shadow var(--dur-base) var(--ease-standard);}
+  .btn-primary{background:var(--color-saffron);color:#fff;}
+  .btn-primary:hover{background:var(--color-saffron-600);color:#fff;}
+  .btn-primary.on-dark{box-shadow:var(--shadow-warm);}
+  .btn-secondary{background:transparent;border:1.5px solid var(--color-sacred-red);color:var(--color-sacred-red);padding:11.5px 22.5px;}
+  .btn-secondary:hover{background:var(--color-sacred-red);color:#fff;}
+  .btn-secondary.on-dark{border-color:#fff;color:#fff;}
+  .btn-secondary.on-dark:hover{background:#fff;color:var(--color-monk-brown);}
+  .btn-lg{padding:16px 30px;font-size:15px;}
+
+  /* ============ HERO ============ */
+  .hero{position:relative;background:var(--color-monk-brown);color:#fff;overflow:hidden;}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(ellipse at 80% 20%, rgba(245,203,0,0.10), transparent 55%),
+    radial-gradient(ellipse at 10% 90%, rgba(200,56,42,0.18), transparent 60%);
+    pointer-events:none;}
+  .hero-inner{position:relative;display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center;padding:120px 0 128px;}
+  .hero-eyebrow{font-size:12px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--color-dharma-gold);margin-bottom:28px;display:flex;align-items:center;gap:14px;}
+  .hero-eyebrow::before{content:"";width:36px;height:1px;background:var(--color-dharma-gold);display:inline-block;}
+  .hero h1{font-family:var(--font-display);font-size:clamp(48px,5.6vw,84px);line-height:1.02;letter-spacing:-0.015em;font-weight:600;margin:0 0 28px;text-wrap:balance;}
+  .hero h1 em{font-style:italic;color:var(--color-dharma-gold);font-weight:500;}
+  .hero p.lead{font-size:19px;line-height:1.6;color:rgba(255,255,255,0.78);max-width:520px;margin:0 0 40px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-art{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:url('bodhgaya-great-buddha.jpeg') center/cover no-repeat,#5C2600;display:flex;align-items:flex-end;padding:24px;}
+  .hero-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(61,28,14,0.15) 0%,transparent 35%,rgba(0,0,0,0.55) 100%);}
+  .hero-art-label{position:relative;z-index:1;font-family:var(--font-mono);font-size:11px;color:rgba(255,255,255,0.85);}
+  .hero-art-mark{position:absolute;top:24px;left:24px;width:48px;height:48px;color:rgba(255,255,255,0.45);z-index:1;}
+
+  /* ============ TRUST STRIP ============ */
+  .trust{background:var(--color-monk-brown-900);color:rgba(255,255,255,0.85);padding:24px 0;border-top:1px solid var(--border-on-dark);}
+  .trust-inner{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+  .trust-item{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;}
+  .trust-num{font-family:var(--font-mono);color:var(--color-dharma-gold);font-weight:600;font-size:14px;}
+  .trust-sep{color:rgba(255,255,255,0.2);}
+
+  /* ============ SECTION SHARED ============ */
+  section{padding:clamp(72px,10vw,128px) 0;}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:56px;flex-wrap:wrap;}
+  .section-head .left{max-width:640px;}
+  .eyebrow{font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-sacred-red);display:inline-block;margin-bottom:18px;}
+  .eyebrow.on-dark{color:var(--color-dharma-gold);}
+  h2.section-title{font-family:var(--font-display);font-size:clamp(34px,4vw,52px);line-height:1.1;letter-spacing:-0.01em;font-weight:600;margin:0 0 16px;text-wrap:balance;}
+  .section-sub{font-size:18px;color:var(--fg-2);line-height:1.6;margin:0;max-width:580px;}
+  .section-link{font-size:14px;color:var(--color-saffron);font-weight:500;border-bottom:1px solid var(--color-saffron);padding-bottom:2px;align-self:flex-end;}
+
+  /* ============ DESTINATIONS ============ */
+  .dest{background:var(--color-parchment);}
+  .dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .dest-grid > :nth-child(4),
+  .dest-grid > :nth-child(5){grid-column:span 1;}
+  .dest-grid{grid-template-columns:repeat(6,1fr);}
+  .dest-card{grid-column:span 2;background:#fff;border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-md);transition:box-shadow var(--dur-slow) var(--ease-standard),transform var(--dur-slow) var(--ease-standard);display:flex;flex-direction:column;}
+  .dest-card:hover{box-shadow:var(--shadow-lg);}
+  .dest-card:hover .dest-img{transform:scale(1.04);}
+  .dest-img-wrap{aspect-ratio:5/4;overflow:hidden;}
+  .dest-img{width:100%;height:100%;display:flex;align-items:flex-end;padding:14px;color:#fff;font-family:var(--font-mono);font-size:10.5px;transition:transform var(--dur-slow) var(--ease-standard);}
+  .dest-body{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1;}
+  .dest-name{font-family:var(--font-display);font-size:26px;font-weight:600;line-height:1.15;color:var(--fg-1);margin:0 0 6px;}
+  .dest-meta{font-family:var(--font-mono);font-size:11px;color:var(--fg-3);margin-bottom:12px;letter-spacing:0.02em;}
+  .dest-desc{font-size:14.5px;color:var(--fg-2);line-height:1.55;margin:0 0 18px;flex:1;}
+  .dest-link{font-size:13px;color:var(--color-saffron);font-weight:500;display:inline-flex;align-items:center;gap:6px;align-self:flex-start;border-bottom:1px solid var(--color-saffron);padding-bottom:2px;}
+  .dest-link::after{content:"→";transition:transform var(--dur-base) var(--ease-standard);}
+  .dest-link:hover::after{transform:translateX(3px);}
+
+  /* image placeholder colorways */
+  .dest-img{background-size:cover;background-position:center;color:transparent;}
+  .ph-bodhgaya{background-image:url('bodhgaya-mahabodhi-day.jpeg');}
+  .ph-sarnath{background-image:url('sarnath-dhamek.jpeg');}
+  .ph-lumbini{background-image:url('lumbini-mayadevi-wide.jpeg');}
+  .ph-kushinagar{background-image:url('kushinagar-reclining.jpeg');}
+  .ph-rajgir{background-image:url('nalanda-xuanzang.jpeg');}
+
+  /* card 4 + 5 sit centered */
+  .dest-grid .dest-card:nth-child(4){grid-column:2 / span 2;}
+  .dest-grid .dest-card:nth-child(5){grid-column:4 / span 2;}
+
+  /* ============ TOURS ============ */
+  .tours{background:var(--color-monk-brown);color:#fff;}
+  .tours h2.section-title{color:#fff;}
+  .tours .section-sub{color:rgba(255,255,255,0.72);}
+  .tours-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .tour-card{background:rgba(255,255,255,0.04);border:1px solid var(--border-on-dark);border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column;transition:background var(--dur-base) var(--ease-standard),border-color var(--dur-base) var(--ease-standard),transform var(--dur-slow) var(--ease-standard);}
+  .tour-card:hover{background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.25);}
+  .tour-img-wrap{aspect-ratio:16/10;overflow:hidden;position:relative;}
+  .tour-img{width:100%;height:100%;display:flex;align-items:flex-start;padding:16px;color:rgba(255,255,255,0.7);font-family:var(--font-mono);font-size:10.5px;}
+  .tour-badge{position:absolute;top:14px;right:14px;background:var(--color-dharma-gold);color:var(--color-bodhi-dark);font-family:var(--font-mono);font-size:11px;font-weight:600;padding:5px 10px;border-radius:4px;letter-spacing:0.02em;}
+  .tour-body{padding:26px 26px 28px;display:flex;flex-direction:column;gap:14px;flex:1;}
+  .tour-name{font-family:var(--font-display);font-size:24px;font-weight:600;color:#fff;margin:0;line-height:1.2;}
+  .tour-desc{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.6;margin:0;flex:1;}
+  .tour-meta{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--border-on-dark);border-bottom:1px solid var(--border-on-dark);}
+  .tour-meta-cell .lbl{font-size:10.5px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:4px;}
+  .tour-meta-cell .val{font-family:var(--font-mono);font-size:14px;color:#fff;font-weight:500;}
+  .tour-foot{display:flex;justify-content:space-between;align-items:center;}
+  .tour-price{font-family:var(--font-mono);font-size:13px;color:rgba(255,255,255,0.6);}
+  .tour-price strong{font-size:22px;color:#fff;font-weight:600;letter-spacing:-0.01em;display:block;margin-top:2px;}
+
+  /* ============ WHY ============ */
+  .why{background:var(--color-parchment);}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}
+  .why-cell .icon{width:44px;height:44px;color:var(--color-sacred-red);margin-bottom:18px;}
+  .why-cell h3{font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--fg-1);line-height:1.25;margin:0 0 10px;}
+  .why-cell p{font-size:14.5px;color:var(--fg-2);line-height:1.6;margin:0;}
+
+  /* ============ TESTIMONIAL ============ */
+  .testi{background:#fff;border-top:1px solid var(--border-hairline);border-bottom:1px solid var(--border-hairline);}
+  .testi-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:72px;align-items:center;}
+  .testi-portrait{aspect-ratio:4/5;border-radius:var(--radius-md);overflow:hidden;background:url('varanasi-ganga-evening.jpeg') center/cover no-repeat,#3D1C0E;display:flex;align-items:flex-end;padding:18px;color:rgba(255,255,255,0.7);font-family:var(--font-mono);font-size:10.5px;}
+  .testi blockquote{margin:0;font-family:var(--font-display);font-style:italic;font-size:clamp(26px,2.6vw,36px);line-height:1.32;font-weight:400;color:var(--fg-1);letter-spacing:-0.005em;text-wrap:balance;}
+  .testi blockquote::before{content:"\201C";font-style:normal;color:var(--color-sacred-red);font-size:1em;line-height:1;display:block;margin-bottom:8px;}
+  .testi-attribution{margin-top:32px;padding-left:18px;border-left:2px solid var(--color-sacred-red);}
+  .testi-name{font-family:var(--font-body);font-weight:600;font-size:15px;color:var(--fg-1);margin:0;}
+  .testi-meta{font-size:13px;color:var(--fg-2);margin:4px 0 0;}
+  .testi-journey{font-family:var(--font-mono);font-size:12px;color:var(--color-sacred-red);margin-top:6px;letter-spacing:0.02em;}
+
+  /* ============ CONTACT ============ */
+  .contact{background:var(--color-monk-brown);color:#fff;padding:104px 0;}
+  .contact-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start;}
+  .contact-left .eyebrow{margin-bottom:14px;}
+  .contact-left h2{font-family:var(--font-display);font-size:clamp(32px,3.6vw,48px);line-height:1.12;font-weight:600;margin:0 0 18px;letter-spacing:-0.01em;text-wrap:balance;}
+  .contact-left p{color:rgba(255,255,255,0.72);font-size:16px;line-height:1.65;margin:0 0 36px;max-width:42ch;}
+  .contact-phone-card{display:block;background:rgba(245,203,0,0.06);border:1px solid rgba(245,203,0,0.22);border-radius:var(--radius-md);padding:24px 26px;text-decoration:none;color:#fff;transition:background var(--dur-base) var(--ease-standard),border-color var(--dur-base) var(--ease-standard);}
+  .contact-phone-card:hover{background:rgba(245,203,0,0.12);border-color:var(--color-dharma-gold);}
+  .contact-phone-card .lbl{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--color-dharma-gold);}
+  .contact-phone-card .num{font-family:var(--font-display);font-weight:600;font-size:32px;letter-spacing:-0.005em;color:#fff;margin-top:8px;display:flex;align-items:center;gap:14px;}
+  .contact-phone-card .num svg{width:24px;height:24px;color:var(--color-dharma-gold);flex:none;}
+  .contact-phone-card .hint{margin-top:8px;font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,0.55);}
+  .contact-extra{margin-top:24px;font-family:var(--font-body);font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6);}
+  .contact-extra a{color:var(--color-dharma-gold);text-decoration:none;border-bottom:1px solid rgba(245,203,0,0.4);}
+  .contact-extra a:hover{border-color:var(--color-dharma-gold);}
+
+  .contact-form{background:rgba(255,255,255,0.04);border:1px solid var(--border-on-dark);border-radius:var(--radius-md);padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:18px 16px;}
+  .contact-form .field-full{grid-column:span 2;}
+  .contact-form label{display:flex;flex-direction:column;gap:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);}
+  .contact-form label .req{color:var(--color-dharma-gold);}
+  .contact-form input,.contact-form textarea{background:rgba(0,0,0,0.18);border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);color:#fff;font-family:var(--font-body);font-size:15px;padding:13px 14px;outline:none;transition:border-color var(--dur-fast) var(--ease-standard),background var(--dur-fast) var(--ease-standard);letter-spacing:0;text-transform:none;}
+  .contact-form input:focus,.contact-form textarea:focus{border-color:var(--color-dharma-gold);background:rgba(0,0,0,0.28);}
+  .contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(255,255,255,0.32);text-transform:none;letter-spacing:0;}
+  .contact-form textarea{min-height:130px;resize:vertical;font-family:var(--font-body);}
+  .contact-foot{grid-column:span 2;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-top:6px;}
+  .contact-foot .privacy{font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+  .contact-form button{background:var(--color-saffron);color:#fff;border:0;font-family:var(--font-body);font-weight:500;font-size:15px;padding:14px 32px;border-radius:var(--radius-pill);cursor:pointer;transition:background var(--dur-fast) var(--ease-standard);display:inline-flex;align-items:center;gap:10px;}
+  .contact-form button:hover{background:var(--color-saffron-600);}
+  .contact-form.sent button{background:var(--color-dharma-gold);color:var(--color-bodhi-dark);}
+
+  /* ============ FOOTER ============ */
+  footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255,0.7);padding:80px 0 28px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px;}
+  .foot-brand .logo{margin-bottom:18px;color:#fff;}
+  .foot-tagline{font-family:var(--font-display);font-style:italic;font-size:18px;color:rgba(255,255,255,0.85);line-height:1.4;margin:0 0 22px;max-width:280px;}
+  .foot-addr{font-size:13.5px;line-height:1.6;color:rgba(255,255,255,0.55);font-style:normal;}
+  .foot-col h4{font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-dharma-gold);margin:0 0 18px;}
+  .foot-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+  .foot-col a{color:rgba(255,255,255,0.7);font-size:14px;}
+  .foot-col a:hover{color:var(--color-dharma-gold);}
+  .foot-social{display:flex;gap:12px;margin-top:14px;}
+  .foot-social a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);transition:border-color var(--dur-base),color var(--dur-base);}
+  .foot-social a:hover{border-color:var(--color-dharma-gold);color:var(--color-dharma-gold);}
+  .foot-social svg{width:16px;height:16px;}
+  .foot-bottom{padding-top:24px;border-top:1px solid var(--border-on-dark);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,0.4);font-family:var(--font-mono);letter-spacing:0.02em;}
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 960px){
+    .nav-links,.nav-cta{display:none;}
+    .nav-toggle{display:inline-flex;}
+    .hero-inner{grid-template-columns:1fr;gap:48px;padding:80px 0 96px;}
+    .hero-art{aspect-ratio:4/3;}
+    .dest-grid{grid-template-columns:1fr 1fr;}
+    .dest-card,.dest-grid .dest-card:nth-child(4),.dest-grid .dest-card:nth-child(5){grid-column:span 1;}
+    .tours-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:1fr 1fr;gap:36px;}
+    .testi-inner{grid-template-columns:1fr;gap:40px;}
+    .testi-portrait{max-width:320px;}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:36px;}
+    .trust-inner{justify-content:flex-start;}
+    .trust-sep{display:none;}
+  }
+  @media (max-width: 560px){
+    .dest-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .news-form{flex-direction:column;border-radius:var(--radius-md);padding:8px;}
+    .news-form input{width:100%;text-align:center;padding:14px;}
+    .news-form button{width:100%;}
+    .contact-inner{grid-template-columns:1fr;gap:48px;}
+    .contact-form{grid-template-columns:1fr;padding:24px;}
+    .contact-form .field-full{grid-column:span 1;}
+    .contact-foot{grid-column:span 1;flex-direction:column;align-items:stretch;}
+    .contact-form button{width:100%;justify-content:center;}
+    .foot-bottom{flex-direction:column;gap:12px;align-items:flex-start;}
+  }
+
+  /* mobile menu (if toggled) */
+  .mobile-menu{display:none;background:var(--color-monk-brown-900);padding:18px var(--container-pad) 24px;}
+  .mobile-menu.open{display:block;}
+  .mobile-menu a{display:block;color:rgba(255,255,255,0.85);padding:10px 0;font-size:15px;border-bottom:1px solid var(--border-on-dark);}
+  .mobile-menu a.active{color:var(--color-dharma-gold);}
+  .mobile-menu .btn{margin-top:14px;width:100%;}
+</style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container nav-row">
-    <a href="index.html" class="brand">
-      <span class="brand-mark">❖</span>
-      <span class="brand-text"><strong>BODHI</strong><small>TOUR AND TRAVEL</small></span>
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="Bodhi — Tour and Travel home">
+      <span class="logo-word">
+        <span class="lw-1">BODHI</span>
+        <span class="lw-2">Tour and Travel</span>
+      </span>
     </a>
-    <nav class="primary-nav">
+    <div class="nav-links">
       <a href="index.html" class="active">Home</a>
-      <a href="places.html">Sacred Sites</a>
+      <a href="places.html">Places</a>
       <a href="tours.html">Tours</a>
       <a href="services.html">Services</a>
-      <a href="blog.html">Field Notes</a>
-      <a href="#contact" class="nav-cta">Contact</a>
-    </nav>
+      <a href="blog.html">Blog</a>
+    </div>
+    <a href="tours.html" class="btn btn-primary nav-cta">Book a journey</a>
+    <button class="nav-toggle" aria-label="Open menu" onclick="document.getElementById('mm').classList.toggle('open')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mm">
+    <a href="index.html" class="active">Home</a>
+    <a href="places.html">Places</a>
+    <a href="tours.html">Tours</a>
+    <a href="services.html">Services</a>
+    <a href="blog.html">Blog</a>
+    <a href="tours.html" class="btn btn-primary">Book a journey</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="container hero-inner">
+    <div>
+      <div class="hero-eyebrow">Bodhgaya · Bihar · India</div>
+      <h1>Walk the path the Buddha <em>walked</em>.</h1>
+      <p class="lead">From the bodhi tree where understanding arose, our small groups walk the eight great places — slowly, in the company of scholar-guides and resident monks. Twenty-five years of sacred circuits across the Buddhist heartlands.</p>
+      <div class="hero-ctas">
+        <a href="tours.html" class="btn btn-primary btn-lg on-dark">Begin your journey</a>
+        <a href="places.html" class="btn btn-secondary btn-lg on-dark">View the circuits</a>
+      </div>
+    </div>
+    <div class="hero-art" role="img" aria-label="Photo: Mahabodhi Temple at first light, Bodhgaya">
+      <svg class="hero-art-mark" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M24 32 C20 26 20 18 24 10 C28 18 28 26 24 32 Z"/>
+        <path d="M24 32 C18 30 12 26 10 18 C18 18 24 22 24 32 Z"/>
+        <path d="M24 32 C30 30 36 26 38 18 C30 18 24 22 24 32 Z"/>
+        <path d="M24 32 C16 32 8 30 4 24 C10 22 18 24 24 32 Z"/>
+        <path d="M24 32 C32 32 40 30 44 24 C38 22 30 24 24 32 Z"/>
+      </svg>
+      <span class="hero-art-label">Great Buddha · Bodhgaya</span>
+    </div>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-image" style="background-image:url('bodhgaya-mahabodhi-day.jpeg');"></div>
-  <div class="hero-overlay"></div>
-  <div class="container hero-content">
-    <span class="kicker">Buddhist Pilgrimage — India · Nepal</span>
-    <h1>Walk the path the Buddha walked.</h1>
-    <p class="lede">Mindful, well-led journeys to Bodhgaya, Sarnath, Lumbini, Kushinagar and beyond — designed for pilgrims, monks, and seekers who want depth, dignity, and care.</p>
-    <div class="hero-cta">
-      <a href="tours.html" class="btn btn-primary">Explore Tours</a>
-      <a href="#contact" class="btn btn-ghost">Plan a Pilgrimage</a>
-    </div>
+<!-- ============ TRUST STRIP ============ -->
+<section class="trust" style="padding:0;">
+  <div class="container trust-inner" style="padding-top:24px;padding-bottom:24px;">
+    <div class="trust-item"><span class="trust-num">25+</span><span>years guiding</span></div>
+    <span class="trust-sep">·</span>
+    <div class="trust-item"><span class="trust-num">12</span><span>pilgrims maximum per group</span></div>
+    <span class="trust-sep">·</span>
+    <div class="trust-item"><span>Monk-endorsed routes</span></div>
+    <span class="trust-sep">·</span>
+    <div class="trust-item"><span>Multilingual scholar-guides</span></div>
   </div>
 </section>
 
-<section class="strip">
-  <div class="container strip-row">
-    <div><strong>20+</strong><span>Sacred Sites</span></div>
-    <div><strong>7</strong><span>Curated Circuits</span></div>
-    <div><strong>12+</strong><span>Years Guiding</span></div>
-    <div><strong>1000+</strong><span>Pilgrims Served</span></div>
-  </div>
-</section>
-
-<section class="section">
+<!-- ============ DESTINATIONS ============ -->
+<section class="dest">
   <div class="container">
     <div class="section-head">
-      <span class="kicker">Sacred Sites</span>
-      <h2>The four great places — and the journeys that connect them.</h2>
-      <p class="lede">Each destination is a chapter in the Buddha's life. We walk them slowly, with local teachers, real history, and time to sit.</p>
+      <div class="left">
+        <span class="eyebrow">The eight great places</span>
+        <h2 class="section-title">Where the dharma settled into the earth.</h2>
+        <p class="section-sub">Five circuits we return to, year after year. Each verified by resident teachers; each walked at the pace the place asks for.</p>
+      </div>
+      <a href="places.html" class="section-link">All places →</a>
     </div>
-    <div class="card-grid">
-      <a href="places.html#bodhgaya" class="place-card">
-        <div class="place-photo" style="background-image:url('bodhgaya-mahabodhi-day.jpeg');"></div>
-        <div class="place-body">
-          <h3>Bodhgaya</h3>
-          <p>The seat of awakening. Mahabodhi Temple, the Bodhi tree, and the inner stillness that draws pilgrims from every tradition.</p>
+
+    <div class="dest-grid">
+      <article class="dest-card">
+        <div class="dest-img-wrap"><div class="dest-img ph-bodhgaya"></div></div>
+        <div class="dest-body">
+          <h3 class="dest-name">Bodhgaya</h3>
+          <div class="dest-meta">8 sacred sites · 3–5 days</div>
+          <p class="dest-desc">Where the Buddha sat beneath the bodhi tree and woke. The heart of every circuit we walk, and where Bodhi Dragon began.</p>
+          <a href="places.html" class="dest-link">Explore</a>
         </div>
-      </a>
-      <a href="places.html#sarnath" class="place-card">
-        <div class="place-photo" style="background-image:url('sarnath-dhamek.jpeg');"></div>
-        <div class="place-body">
-          <h3>Sarnath</h3>
-          <p>Where the first teaching was given. Dhamek Stupa, the deer park, and the turning of the wheel of Dharma.</p>
+      </article>
+
+      <article class="dest-card">
+        <div class="dest-img-wrap"><div class="dest-img ph-sarnath"></div></div>
+        <div class="dest-body">
+          <h3 class="dest-name">Sarnath</h3>
+          <div class="dest-meta">5 sites · 1–2 days</div>
+          <p class="dest-desc">The deer park where the first teaching was given. A short ride from Varanasi, often paired with the Ganges at dawn.</p>
+          <a href="places.html" class="dest-link">Explore</a>
         </div>
-      </a>
-      <a href="places.html#lumbini" class="place-card">
-        <div class="place-photo" style="background-image:url('lumbini-mayadevi-wide.jpeg');"></div>
-        <div class="place-body">
-          <h3>Lumbini</h3>
-          <p>The birthplace, in the Nepalese Terai. Mayadevi Temple, the Ashoka pillar, and the international monastic zone.</p>
+      </article>
+
+      <article class="dest-card">
+        <div class="dest-img-wrap"><div class="dest-img ph-lumbini"></div></div>
+        <div class="dest-body">
+          <h3 class="dest-name">Lumbini</h3>
+          <div class="dest-meta">7 sites · 2 days</div>
+          <p class="dest-desc">The garden of his birth, just across the Nepal border. Walk the pillar of Ashoka and the monasteries of every tradition.</p>
+          <a href="places.html" class="dest-link">Explore</a>
         </div>
-      </a>
-      <a href="places.html#kushinagar" class="place-card">
-        <div class="place-photo" style="background-image:url('kushinagar-reclining.jpeg');"></div>
-        <div class="place-body">
-          <h3>Kushinagar</h3>
-          <p>The place of mahaparinirvana. The reclining Buddha, the cremation stupa, and the quiet that follows.</p>
+      </article>
+
+      <article class="dest-card">
+        <div class="dest-img-wrap"><div class="dest-img ph-kushinagar"></div></div>
+        <div class="dest-body">
+          <h3 class="dest-name">Kushinagar</h3>
+          <div class="dest-meta">4 sites · 1 day</div>
+          <p class="dest-desc">The grove of his parinirvana. Quietest of the eight; we sit longest here, between teachings.</p>
+          <a href="places.html" class="dest-link">Explore</a>
         </div>
-      </a>
-      <a href="places.html#nalanda" class="place-card">
-        <div class="place-photo" style="background-image:url('nalanda-xuanzang.jpeg');"></div>
-        <div class="place-body">
-          <h3>Rajgir &amp; Nalanda</h3>
-          <p>The great university and the Vulture Peak. Where philosophy, debate, and meditation met for a thousand years.</p>
+      </article>
+
+      <article class="dest-card">
+        <div class="dest-img-wrap"><div class="dest-img ph-rajgir"></div></div>
+        <div class="dest-body">
+          <h3 class="dest-name">Rajgir &amp; Nalanda</h3>
+          <div class="dest-meta">9 sites · 2–3 days</div>
+          <p class="dest-desc">Vulture's Peak, the bamboo grove, and the great university where Xuanzang studied — the cradle of Buddhist scholarship.</p>
+          <a href="places.html" class="dest-link">Explore</a>
         </div>
-      </a>
-      <a href="places.html#varanasi" class="place-card">
-        <div class="place-photo" style="background-image:url('varanasi-ganga-evening.jpeg');"></div>
-        <div class="place-body">
-          <h3>Varanasi</h3>
-          <p>The eternal city. Ghats at dawn, the Ganga aarti at dusk, and the gateway to Sarnath just beyond.</p>
-        </div>
-      </a>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="section section-alt">
+<!-- ============ TOURS ============ -->
+<section class="tours">
   <div class="container">
     <div class="section-head">
-      <span class="kicker">Featured Tour</span>
-      <h2>The Winter Teachings at Bodhgaya.</h2>
-      <p class="lede">Each December and January, senior teachers gather in Bodhgaya. We host pilgrims for the season — lodging, transport, dharma access, and care.</p>
+      <div class="left">
+        <span class="eyebrow on-dark">Pilgrimage circuits</span>
+        <h2 class="section-title">Three journeys. Twelve seats each.</h2>
+        <p class="section-sub">Departures shaped to the Buddhist calendar — Vesak, Asalha, the winter teachings at Bodhgaya. Choose the route that calls.</p>
+      </div>
+      <a href="tours.html" class="section-link" style="color:var(--color-dharma-gold);border-color:var(--color-dharma-gold);">All tours →</a>
     </div>
-    <div class="featured-card">
-      <div class="featured-photo" style="background-image:url('bodhgaya-monks-teaching.jpeg');">
-        <span class="badge">Featured</span>
-      </div>
-      <div class="featured-body">
-        <h3>10 · 14 · 21 Day Circuits</h3>
-        <p>Walk all four sacred sites at a pilgrim's pace. Stay close to the temples. Sit with monks and teachers. Eat well, sleep well, return home changed.</p>
-        <a href="tours.html" class="btn btn-primary">All tours →</a>
-      </div>
+
+    <div class="tours-grid">
+      <article class="tour-card">
+        <div class="tour-img-wrap">
+          <div class="tour-img" style="background:url('mahabodhi-festival-entrance.jpeg') center/cover no-repeat;color:transparent;"></div>
+          <span class="tour-badge">Featured</span>
+        </div>
+        <div class="tour-body">
+          <h3 class="tour-name">India Buddhist Circuit</h3>
+          <p class="tour-desc">The classical pilgrimage — Bodhgaya, Rajgir, Nalanda, Vaishali, Kushinagar, Lumbini, Sarnath. Mornings for sitting; afternoons for the road.</p>
+          <div class="tour-meta">
+            <div class="tour-meta-cell"><div class="lbl">Duration</div><div class="val">14 days</div></div>
+            <div class="tour-meta-cell"><div class="lbl">Group size</div><div class="val">max 12</div></div>
+          </div>
+          <div class="tour-foot">
+            <div class="tour-price">From<strong>USD&nbsp;4,200</strong></div>
+            <a href="tours.html" class="btn btn-secondary on-dark">Details</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="tour-card">
+        <div class="tour-img-wrap">
+          <div class="tour-img" style="background:url('bodhgaya-spire-night.jpeg') center/cover no-repeat;color:transparent;"></div>
+        </div>
+        <div class="tour-body">
+          <h3 class="tour-name">Himalayan Vajrayana</h3>
+          <p class="tour-desc">Ten days through Ladakh's monastery circuit — Hemis, Thiksey, Lamayuru, Diskit. Slow acclimatisation, long teachings, mountain stillness.</p>
+          <div class="tour-meta">
+            <div class="tour-meta-cell"><div class="lbl">Duration</div><div class="val">10 days</div></div>
+            <div class="tour-meta-cell"><div class="lbl">Group size</div><div class="val">max 10</div></div>
+          </div>
+          <div class="tour-foot">
+            <div class="tour-price">From<strong>USD&nbsp;3,800</strong></div>
+            <a href="tours.html" class="btn btn-secondary on-dark">Details</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="tour-card">
+        <div class="tour-img-wrap">
+          <div class="tour-img" style="background:url('kushinagar-temple.jpeg') center/cover no-repeat;color:transparent;"></div>
+        </div>
+        <div class="tour-body">
+          <h3 class="tour-name">Zen Japan</h3>
+          <p class="tour-desc">Twelve days with Rinzai and Sōtō teachers — Kyoto, Nara, Eihei-ji, Koyasan. Rakusu sewing, oryoki meals, dawn zazen.</p>
+          <div class="tour-meta">
+            <div class="tour-meta-cell"><div class="lbl">Duration</div><div class="val">12 days</div></div>
+            <div class="tour-meta-cell"><div class="lbl">Group size</div><div class="val">max 8</div></div>
+          </div>
+          <div class="tour-foot">
+            <div class="tour-price">From<strong>USD&nbsp;6,400</strong></div>
+            <a href="tours.html" class="btn btn-secondary on-dark">Details</a>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- ============ WHY ============ -->
+<section class="why">
   <div class="container">
-    <div class="section-head">
-      <span class="kicker">How we travel</span>
-      <h2>Three quiet promises.</h2>
+    <div class="section-head" style="margin-bottom:64px;">
+      <div class="left">
+        <span class="eyebrow">Why Bodhi Dragon</span>
+        <h2 class="section-title">Walked, not packaged.</h2>
+        <p class="section-sub">Four commitments shape every itinerary we publish. They are why monasteries open their gates to us, and why pilgrims return.</p>
+      </div>
     </div>
-    <div class="promise-grid">
-      <div class="promise">
-        <div class="promise-num">01</div>
-        <h3>Small groups</h3>
-        <p>We cap groups at 16. Real conversation, real silence at the temples, and no one gets lost in a crowd.</p>
+
+    <div class="why-grid">
+      <div class="why-cell">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 36 L24 8 L40 36 Z"/>
+          <path d="M14 30 L24 14 L34 30"/>
+          <circle cx="24" cy="24" r="2.5" fill="currentColor"/>
+        </svg>
+        <h3>Scholar-guides</h3>
+        <p>Every circuit is led by a guide trained at Nalanda, Drepung, or Komazawa — fluent in sutra, history, and the local tongue.</p>
       </div>
-      <div class="promise">
-        <div class="promise-num">02</div>
-        <h3>Local teachers</h3>
-        <p>Our guides are scholars and practitioners — not just historians. You'll hear the texts and the lived tradition.</p>
+
+      <div class="why-cell">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="24" r="14"/>
+          <path d="M24 10 V38 M10 24 H38 M14 14 L34 34 M34 14 L14 34"/>
+        </svg>
+        <h3>Lineage-verified routes</h3>
+        <p>Every itinerary is reviewed by resident monks at Mahabodhi, Hemis, and Eihei-ji before a single seat is offered.</p>
       </div>
-      <div class="promise">
-        <div class="promise-num">03</div>
-        <h3>Right comfort</h3>
-        <p>Clean, well-located hotels. Filtered water. Vegetarian and vegan food. Care for elders and first-timers.</p>
+
+      <div class="why-cell">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="16" cy="20" r="5"/><circle cx="32" cy="20" r="5"/>
+          <path d="M8 38 c0-5 4-9 8-9 s8 4 8 9"/>
+          <path d="M24 38 c0-5 4-9 8-9 s8 4 8 9"/>
+        </svg>
+        <h3>Small groups, always</h3>
+        <p>Twelve pilgrims, no more. The places we visit cannot hold a crowd; the teachings we receive will not arrive in one.</p>
+      </div>
+
+      <div class="why-cell">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 8 c-7 7 -7 18 0 26 c7 -8 7 -19 0 -26 Z"/>
+          <path d="M16 30 c4 -2 8 -2 16 -2"/>
+          <path d="M12 38 h24"/>
+        </svg>
+        <h3>Carbon-conscious travel</h3>
+        <p>Overland between sacred sites where possible; offsets purchased through verified Bihar reforestation. Disclosed in every itinerary.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section-dark" id="contact">
-  <div class="container connect-grid">
+<!-- ============ TESTIMONIAL ============ -->
+<section class="testi">
+  <div class="container testi-inner">
+    <div class="testi-portrait" role="img" aria-label="Portrait of Aiko Nakamura">
+      
+    </div>
     <div>
-      <span class="kicker kicker-light">Connect with us</span>
-      <h2>Plan your pilgrimage.</h2>
-      <p class="lede">Tell us what you're looking for — a date, a circuit, a private group, a teacher's tour. We'll write back within 24 hours.</p>
-      <ul class="contact-list">
-        <li><strong>Phone</strong> +91 87970 59656</li>
-        <li><strong>Email</strong> hello@bodhitourandtravel.com</li>
-        <li><strong>Office</strong> Bodhgaya · Bihar · India</li>
-      </ul>
+      <span class="eyebrow">A pilgrim's account</span>
+      <blockquote>I came expecting a tour and was given a teaching. Our guide had sat with the same lama for fifteen years; he did not perform the dharma — he simply lived it, and let us walk beside him.</blockquote>
+      <div class="testi-attribution">
+        <p class="testi-name">Aiko Nakamura</p>
+        <p class="testi-meta">Tokyo, Japan</p>
+        <p class="testi-journey">Walked the India Buddhist Circuit · Autumn 2025</p>
+      </div>
     </div>
-    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you. We will be in touch within 24 hours.'); this.reset();">
-      <label>Name<input type="text" name="name" required></label>
-      <label>Email<input type="email" name="email" required></label>
-      <label>Phone<input type="tel" name="phone"></label>
-      <label>Group / Sangha<input type="text" name="group"></label>
-      <label class="full">Tell us about your journey<textarea name="message" rows="4" placeholder="Dates, group size, sites you want to visit…"></textarea></label>
-      <button type="submit" class="btn btn-primary">Send enquiry</button>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="container contact-inner">
+
+    <div class="contact-left">
+      <span class="eyebrow on-dark">Connect with us</span>
+      <h2>Begin a conversation about your journey.</h2>
+      <p>Whether you are planning a private pilgrimage, a small group retreat, or a corporate dharma circuit — reach us directly. We answer every enquiry within two working days, in the order it arrives.</p>
+
+      <a class="contact-phone-card" href="tel:+918797059656" aria-label="Call Bodhi Tour and Travel at +91 87970 59656">
+        <span class="lbl">Speak to us · IST 09:00–19:00</span>
+        <span class="num">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/>
+          </svg>
+          +91&nbsp;87970&nbsp;59656
+        </span>
+        <span class="hint">Click to call — or WhatsApp the same number.</span>
+      </a>
+
+      <div class="contact-extra">
+        Write to us at <a href="mailto:hello@bodhitourtravel.com">hello@bodhitourtravel.com</a><br>
+        Office · Temple Road, Bodhgaya, Bihar 824231 · India
+      </div>
+    </div>
+
+    <form class="contact-form" onsubmit="event.preventDefault();this.classList.add('sent');this.querySelector('button').textContent='Received with thanks — we will write back soon';">
+      <label>
+        Name <span class="req">*</span>
+        <input type="text" name="name" required placeholder="Your full name">
+      </label>
+      <label>
+        Email <span class="req">*</span>
+        <input type="email" name="email" required placeholder="you@example.com">
+      </label>
+      <label>
+        Phone <span class="req">*</span>
+        <input type="tel" name="phone" required placeholder="+country&nbsp;number">
+      </label>
+      <label>
+        Company <span style="color:rgba(255,255,255,0.3);">(optional)</span>
+        <input type="text" name="company" placeholder="Organisation, if any">
+      </label>
+      <label class="field-full">
+        Message <span class="req">*</span>
+        <textarea name="message" required placeholder="Tell us about the journey you have in mind — dates, group size, places that call."></textarea>
+      </label>
+      <div class="contact-foot">
+        <span class="privacy">Your details stay with us · never shared</span>
+        <button type="submit">
+          Send message
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </div>
     </form>
+
   </div>
 </section>
 
+<!-- ============ FOOTER ============ -->
 <footer class="site-footer">
-  <div class="container footer-row">
-    <div>
-      <a href="index.html" class="brand brand-light">
-        <span class="brand-mark">❖</span>
-        <span class="brand-text"><strong>BODHI</strong><small>TOUR AND TRAVEL</small></span>
-      </a>
-      <p>Mindful pilgrimage across India and Nepal. Crafted with care since 2013.</p>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo" aria-label="Bodhi — Tour and Travel home">
+          <span class="logo-word">
+            <span class="lw-1">BODHI</span>
+            <span class="lw-2">Tour and Travel</span>
+          </span>
+        </a>
+        <p class="foot-tagline">Sacred journeys through Buddhist heartlands. <em style="font-style:italic;color:rgba(255,255,255,0.6);">Experience the world anew.</em></p>
+        <address class="foot-addr">
+          Temple Road, Bodhgaya<br>
+          Bihar 824231 · India<br>
+          +91 631 220 0000<br>
+          <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6611070a0d260409020e0f0214070109084805090b">[email&#160;protected]</a>
+        </address>
+        <div class="foot-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9 L16 12 L10 15 Z" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22 V13 h3 l0.5 -4 H14 V7 c0-1.2.5-2 2-2 h2 V1.5 C17 1.2 15.7 1 14.5 1 c-3 0-5 1.8-5 5 v3 H6 v4 h3.5 V22"/></svg></a>
+          <a href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 3H21l-7.4 8.45L22.5 21h-7.1l-5.55-7.05L3.5 21H.1l7.95-9.05L0 3h7.3l5 6.6L17.6 3zm-1.25 16h1.95L7.85 5H5.75l10.6 14z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Journeys</h4>
+        <ul>
+          <li><a href="tours.html">India Buddhist Circuit</a></li>
+          <li><a href="tours.html">Himalayan Vajrayana</a></li>
+          <li><a href="tours.html">Zen Japan</a></li>
+          <li><a href="tours.html">All circuits</a></li>
+          <li><a href="tours.html">Sacred calendar</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Places</h4>
+        <ul>
+          <li><a href="places.html">Bodhgaya</a></li>
+          <li><a href="places.html">Sarnath</a></li>
+          <li><a href="places.html">Lumbini</a></li>
+          <li><a href="places.html">Kushinagar</a></li>
+          <li><a href="places.html">Ladakh</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Bodhi Dragon</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">Field notes</a></li>
+          <li><a href="services.html">Our guides</a></li>
+          <li><a href="services.html">Contact</a></li>
+          <li><a href="services.html">Travel guidance</a></li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <h4>Visit</h4>
-      <ul>
-        <li><a href="places.html">Sacred Sites</a></li>
-        <li><a href="tours.html">Tours</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="blog.html">Field Notes</a></li>
-      </ul>
+    <div class="foot-bottom">
+      <span>© 2026 Bodhi Dragon · Bodhgaya, India</span>
+      <span>Made with care · all journeys carbon-disclosed</span>
     </div>
-    <div>
-      <h4>Contact</h4>
-      <ul>
-        <li>+91 87970 59656</li>
-        <li>hello@bodhitourandtravel.com</li>
-        <li>Bodhgaya, Bihar, India</li>
-      </ul>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <small>© 2026 Bodhi Dragon Tour and Travel. All rights reserved.</small>
   </div>
 </footer>
 
