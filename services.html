@@ -1,184 +1,482 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services — Bodhi Dragon Tour and Travel</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Services · Bodhi — Tour and Travel</title>
 <link rel="stylesheet" href="styles.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+img{max-width:100%;display:block;}
+button{font:inherit;cursor:pointer;}
+.container{max-width:var(--container-max);margin:0 auto;padding:0 var(--container-pad);}
+.nav{position:sticky;top:0;z-index:50;background:#0E1B16;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;border-bottom:1px solid rgba(245,203,0,0.18);box-shadow:0 1px 0 rgba(245,203,0,0.06) inset;}
+.nav-inner{display:flex;align-items:center;gap:36px;height:84px;}
+.logo{display:inline-flex;align-items:center;gap:14px;font-family:var(--font-display);font-weight:600;font-size:22px;color:#fff;text-decoration:none;letter-spacing:-0.005em;}
+.logo .logo-word{display:flex;flex-direction:column;line-height:1;}
+.logo .logo-word .lw-1{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:0.18em;color:#F1D27A;}
+.logo .logo-word .lw-2{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.32em;color:#9C7A2E;text-transform:uppercase;margin-top:5px;}
+.nav-links{display:flex;gap:28px;font-size:14px;font-weight:500;}
+.nav-links a{position:relative;color:rgba(255,255,255,0.78);padding:6px 0;transition:color var(--dur-fast) var(--ease-standard);text-decoration:none;}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--color-dharma-gold);transition:width var(--dur-base) var(--ease-standard);}
+.nav-links a:hover{color:var(--color-dharma-gold);}
+.nav-links a:hover::after{width:100%;}
+.nav-links a.active{color:var(--color-dharma-gold);}
+.nav-links a.active::after{width:100%;}
+.nav-cta{margin-left:auto;}
+.nav-toggle{display:none;background:transparent;border:0;color:#fff;padding:8px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-body);font-weight:500;font-size:14px;padding:13px 24px;border-radius:var(--radius-pill);border:0;line-height:1;text-decoration:none;transition:background var(--dur-fast) var(--ease-standard),color var(--dur-fast) var(--ease-standard),box-shadow var(--dur-base) var(--ease-standard);}
+.btn-primary{background:var(--color-saffron);color:#fff;}
+.btn-primary:hover{background:var(--color-saffron-600);color:#fff;}
+.btn-secondary{background:transparent;border:1.5px solid var(--color-sacred-red);color:var(--color-sacred-red);padding:11.5px 22.5px;}
+.btn-secondary:hover{background:var(--color-sacred-red);color:#fff;}
+.btn-secondary.on-dark{border-color:#fff;color:#fff;}
+.btn-secondary.on-dark:hover{background:#fff;color:var(--color-monk-brown);}
+.btn-lg{padding:16px 30px;font-size:15px;}
+.page-hero{position:relative;background:var(--color-monk-brown);color:#fff;overflow:hidden;}
+.page-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(245,203,0,0.12),transparent 55%),radial-gradient(ellipse at 10% 90%,rgba(200,56,42,0.20),transparent 60%);pointer-events:none;}
+.page-hero-inner{position:relative;padding:80px 0 96px;max-width:780px;}
+.crumbs{font-family:var(--font-mono);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:22px;}
+.crumbs a{color:rgba(255,255,255,0.55);text-decoration:none;}
+.crumbs a:hover{color:var(--color-dharma-gold);}
+.crumbs .sep{margin:0 10px;color:rgba(255,255,255,0.3);}
+.page-eyebrow{font-size:12px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--color-dharma-gold);margin-bottom:22px;display:inline-flex;align-items:center;gap:14px;}
+.page-eyebrow::before{content:"";width:36px;height:1px;background:var(--color-dharma-gold);display:inline-block;}
+.page-hero h1{font-family:var(--font-display);font-size:clamp(42px,5.2vw,76px);line-height:1.04;letter-spacing:-0.015em;font-weight:600;margin:0 0 26px;text-wrap:balance;}
+.page-hero h1 em{font-style:italic;color:var(--color-dharma-gold);font-weight:500;}
+.page-hero p.lead{font-family:var(--font-display);font-style:italic;font-size:18px;line-height:1.6;color:rgba(255,255,255,0.78);max-width:620px;margin:0;}
+.eyebrow{font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-sacred-red);display:inline-block;margin-bottom:18px;}
+.eyebrow.on-dark{color:var(--color-dharma-gold);}
+.contact{background:var(--color-monk-brown);color:#fff;padding:104px 0;border-top:1px solid var(--border-on-dark);}
+.contact-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start;}
+.contact-left h2{font-family:var(--font-display);font-size:clamp(32px,3.6vw,48px);line-height:1.12;font-weight:600;margin:0 0 18px;letter-spacing:-0.01em;text-wrap:balance;color:#fff;}
+.contact-left p{color:rgba(255,255,255,0.72);font-size:16px;line-height:1.65;margin:0 0 36px;max-width:42ch;}
+.contact-phone-card{display:block;background:rgba(245,203,0,0.06);border:1px solid rgba(245,203,0,0.22);border-radius:var(--radius-md);padding:24px 26px;text-decoration:none;color:#fff;}
+.contact-phone-card:hover{background:rgba(245,203,0,0.12);border-color:var(--color-dharma-gold);}
+.contact-phone-card .lbl{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--color-dharma-gold);}
+.contact-phone-card .num{font-family:var(--font-display);font-weight:600;font-size:32px;letter-spacing:-0.005em;color:#fff;margin-top:8px;display:flex;align-items:center;gap:14px;}
+.contact-phone-card .num svg{width:24px;height:24px;color:var(--color-dharma-gold);flex:none;}
+.contact-phone-card .hint{margin-top:8px;font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,0.55);}
+.contact-extra{margin-top:24px;font-family:var(--font-body);font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6);}
+.contact-extra a{color:var(--color-dharma-gold);text-decoration:none;border-bottom:1px solid rgba(245,203,0,0.4);}
+.contact-form{background:rgba(255,255,255,0.04);border:1px solid var(--border-on-dark);border-radius:var(--radius-md);padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:18px 16px;}
+.contact-form .field-full{grid-column:span 2;}
+.contact-form label{display:flex;flex-direction:column;gap:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);}
+.contact-form label .req{color:var(--color-dharma-gold);}
+.contact-form input,.contact-form textarea,.contact-form select{background:rgba(0,0,0,0.18);border:1px solid var(--border-on-dark);border-radius:var(--radius-sm);color:#fff;font-family:var(--font-body);font-size:15px;padding:13px 14px;outline:none;}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:var(--color-dharma-gold);background:rgba(0,0,0,0.28);}
+.contact-form textarea{min-height:130px;resize:vertical;}
+.contact-foot{grid-column:span 2;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-top:6px;}
+.contact-foot .privacy{font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.contact-form button{background:var(--color-saffron);color:#fff;border:0;font-family:var(--font-body);font-weight:500;font-size:15px;padding:14px 32px;border-radius:var(--radius-pill);cursor:pointer;display:inline-flex;align-items:center;gap:10px;}
+.contact-form button:hover{background:var(--color-saffron-600);}
+footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255,0.7);padding:80px 0 28px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px;}
+.foot-brand .logo{margin-bottom:18px;color:#fff;}
+.foot-tagline{font-family:var(--font-display);font-style:italic;font-size:18px;color:rgba(255,255,255,0.85);line-height:1.4;margin:0 0 22px;max-width:280px;}
+.foot-addr{font-size:13.5px;line-height:1.6;color:rgba(255,255,255,0.55);font-style:normal;}
+.foot-col h4{font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-dharma-gold);margin:0 0 18px;}
+.foot-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.foot-col a{color:rgba(255,255,255,0.7);font-size:14px;text-decoration:none;}
+.foot-col a:hover{color:var(--color-dharma-gold);}
+.foot-bottom{padding-top:24px;border-top:1px solid var(--border-on-dark);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,0.4);font-family:var(--font-mono);letter-spacing:0.02em;}
+.mobile-menu{display:none;background:var(--color-monk-brown-900);padding:18px var(--container-pad) 24px;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;color:rgba(255,255,255,0.85);padding:10px 0;font-size:15px;border-bottom:1px solid var(--border-on-dark);text-decoration:none;}
+.mobile-menu a.active{color:var(--color-dharma-gold);}
+.mobile-menu .btn{margin-top:14px;width:100%;}
+@media (max-width:960px){.nav-links,.nav-cta{display:none;}.nav-toggle{display:inline-flex;}.contact-inner{grid-template-columns:1fr;gap:48px;}.foot-grid{grid-template-columns:1fr 1fr;gap:36px;}}
+@media (max-width:560px){.contact-form{grid-template-columns:1fr;padding:24px;}.contact-form .field-full{grid-column:span 1;}.contact-foot{grid-column:span 1;flex-direction:column;align-items:stretch;}.foot-grid{grid-template-columns:1fr;}.foot-bottom{flex-direction:column;gap:12px;align-items:flex-start;}}
+
+.services-section{padding:96px 0;background:#fff;}
+.services-section.alt{background:var(--color-parchment);}
+.section-head-page{margin-bottom:56px;max-width:680px;}
+.section-head-page .eyebrow{margin-bottom:14px;}
+.section-head-page h2{font-family:var(--font-display);font-size:clamp(34px,4vw,52px);line-height:1.1;letter-spacing:-0.01em;font-weight:600;margin:0 0 16px;color:var(--fg-1);text-wrap:balance;}
+.section-head-page h2 em{font-style:italic;color:var(--color-saffron);}
+.section-head-page p{font-size:18px;color:var(--fg-2);line-height:1.6;margin:0;}
+
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+.svc-card{background:#fff;border:1px solid var(--border-hairline);border-radius:var(--radius-md);padding:36px 36px 32px;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:box-shadow var(--dur-slow);}
+.svc-card:hover{box-shadow:var(--shadow-md);}
+.svc-card .ic{width:42px;height:42px;color:var(--color-sacred-red);margin-bottom:18px;}
+.svc-tag{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-saffron);margin-bottom:8px;}
+.svc-card h3{font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--fg-1);margin:0 0 12px;line-height:1.2;letter-spacing:-0.01em;}
+.svc-card p{font-size:15px;color:var(--fg-2);line-height:1.65;margin:0 0 20px;flex:1;}
+.svc-card ul{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-card li{font-size:14px;color:var(--fg-2);padding-left:22px;position:relative;}
+.svc-card li::before{content:"·";position:absolute;left:8px;top:0;color:var(--color-sacred-red);font-weight:700;}
+.svc-foot{display:flex;justify-content:space-between;align-items:center;padding-top:18px;border-top:1px solid var(--border-hairline);}
+.svc-foot .from{font-family:var(--font-mono);font-size:11px;color:var(--fg-3);letter-spacing:0.04em;}
+.svc-foot .from strong{color:var(--fg-1);font-size:14px;letter-spacing:0;display:block;font-family:var(--font-display);font-weight:600;margin-top:2px;}
+.svc-foot .arrow{color:var(--color-saffron);font-family:var(--font-mono);font-size:13px;border-bottom:1px solid var(--color-saffron);padding-bottom:2px;}
+
+/* Guides */
+.guides{background:var(--color-monk-brown);color:#fff;padding:96px 0;}
+.guides .section-head-page h2{color:#fff;}
+.guides .section-head-page p{color:rgba(255,255,255,0.72);}
+.guides-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.guide-card{background:rgba(255,255,255,0.04);border:1px solid var(--border-on-dark);border-radius:var(--radius-md);overflow:hidden;}
+.guide-img{aspect-ratio:4/5;background-size:cover;background-position:center;}
+.guide-body{padding:26px 28px 30px;}
+.guide-name{font-family:var(--font-display);font-size:22px;font-weight:600;color:#fff;margin:0 0 4px;letter-spacing:-0.005em;}
+.guide-role{font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-dharma-gold);margin-bottom:14px;}
+.guide-bio{font-size:14px;color:rgba(255,255,255,0.72);line-height:1.65;margin:0;}
+
+/* Process */
+.process{background:#fff;padding:96px 0;}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;counter-reset:proc;}
+.proc-step{counter-increment:proc;}
+.proc-step::before{content:counter(proc,decimal-leading-zero);font-family:var(--font-mono);font-size:13px;letter-spacing:0.16em;color:var(--color-saffron);font-weight:600;display:block;margin-bottom:14px;}
+.proc-step h3{font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--fg-1);margin:0 0 10px;line-height:1.25;}
+.proc-step p{font-size:14.5px;color:var(--fg-2);line-height:1.65;margin:0;}
+
+/* FAQ */
+.faq{background:var(--color-parchment);padding:96px 0;}
+.faq-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border-hairline);}
+details.faq-item{border-bottom:1px solid var(--border-hairline);padding:24px 0;}
+details.faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--fg-1);letter-spacing:-0.005em;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:"+";font-family:var(--font-display);font-size:28px;color:var(--color-sacred-red);font-weight:300;transition:transform var(--dur-base);}
+details.faq-item[open] summary::after{content:"−";}
+details.faq-item p{margin:14px 0 0;font-size:15px;color:var(--fg-2);line-height:1.65;max-width:780px;}
+
+@media (max-width:960px){
+  .svc-grid{grid-template-columns:1fr;}
+  .guides-grid{grid-template-columns:1fr;}
+  .proc-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
 </head>
 <body>
-
-<header class="site-header">
-  <div class="container nav-row">
-    <a href="index.html" class="brand">
-      <span class="brand-mark">❖</span>
-      <span class="brand-text"><strong>BODHI</strong><small>TOUR AND TRAVEL</small></span>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-word">
+        <span class="lw-1">BODHI</span>
+        <span class="lw-2">Tour and Travel</span>
+      </span>
     </a>
-    <nav class="primary-nav">
+    <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="places.html">Sacred Sites</a>
+      <a href="places.html">Places</a>
       <a href="tours.html">Tours</a>
       <a href="services.html" class="active">Services</a>
-      <a href="blog.html">Field Notes</a>
-      <a href="index.html#contact" class="nav-cta">Contact</a>
-    </nav>
+      <a href="blog.html">Blog</a>
+    </div>
+    <a href="#contact" class="btn btn-primary nav-cta">Plan a journey</a>
+    <button class="nav-toggle" aria-label="Open menu" onclick="document.getElementById('mm').classList.toggle('open')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mm">
+    <a href="index.html">Home</a>
+    <a href="places.html">Places</a>
+    <a href="tours.html">Tours</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="blog.html">Blog</a>
+    <a href="#contact" class="btn btn-primary">Plan a journey</a>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="crumbs"><a href="index.html">Home</a><span class="sep">·</span>Services</div>
+    <div class="page-eyebrow">What we offer · how we work</div>
+    <h1>Pilgrimage, <em>arranged</em> with care.</h1>
+    <p class="lead">From a single seat on a published circuit to a private corporate retreat — six ways we help travellers walk the Buddhist heartlands. Every service led by a scholar-guide; every itinerary verified by resident teachers.</p>
   </div>
 </header>
 
-<section class="page-hero">
+<section class="services-section">
   <div class="container">
-    <span class="kicker kicker-light">What we do</span>
-    <h1>Twelve services, one promise.</h1>
-    <p class="lede">Beyond the itinerary, every Bodhi pilgrimage includes the small, careful things that turn a trip into a real journey.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="service-grid">
-
-      <div class="service-card">
-        <div class="service-icon">❖</div>
-        <h3>Pilgrimage Planning</h3>
-        <p>Detailed itineraries built around your group's tradition, dates, and energy level. Pre-departure briefings, packing guides, and a dedicated coordinator.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">⌂</div>
-        <h3>Accommodation</h3>
-        <p>Clean, well-located hotels close to the temples. Rooms are inspected each season. Special arrangements for monks, elders, and dietary needs.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">→</div>
-        <h3>Transport</h3>
-        <p>Air-conditioned vehicles with experienced drivers. Domestic flights coordinated. Train tickets in higher classes. Border crossings to Nepal handled end-to-end.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">☼</div>
-        <h3>Local Guides</h3>
-        <p>Site-specific guides at every major place — scholars, retired professors, and practitioners. Not generalists, but people who know each stupa and sutra.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">☱</div>
-        <h3>Dharma Access</h3>
-        <p>Coordination for teachings, audiences with senior teachers, monastery visits, and access during festival seasons. Winter teachings passes in Bodhgaya.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">✿</div>
-        <h3>Vegetarian Catering</h3>
-        <p>All meals vegetarian by default; vegan and Jain options available. Filtered drinking water always provided. We know the safe restaurants in every town.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">✚</div>
-        <h3>Medical Support</h3>
-        <p>First-aid kit on every vehicle. Doctor on call in Bodhgaya, Varanasi, and Lumbini. Travel insurance partnerships for international pilgrims.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">⚐</div>
-        <h3>Visa &amp; Permits</h3>
-        <p>India e-visa guidance, Nepal entry support, and permits for restricted areas (Sikkim, Spiti, Tabo). We don't apply for you, but we walk you through it.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">☷</div>
-        <h3>Group Logistics</h3>
-        <p>Sangha tours from Thailand, Vietnam, Korea, Sri Lanka, and beyond. Translators where needed. Coordination with home temples for offerings and ceremonies.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">◇</div>
-        <h3>Photography &amp; Records</h3>
-        <p>Group photographer available on request. Daily journal templates. Many pilgrims return with a record they keep for life.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">♡</div>
-        <h3>Care for Elders</h3>
-        <p>Wheelchair-accessible vehicles. Slower itineraries. Walking sticks and shaded rest at every stupa. Many of our pilgrims are 70+ and we're proud of that.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">★</div>
-        <h3>Custom Ceremonies</h3>
-        <p>Lighting offerings at the Mahabodhi, robe offerings at Kushinagar, alms offerings at Sarnath. Coordinated with local sangha and temple authorities.</p>
-      </div>
-
+    <div class="section-head-page">
+      <span class="eyebrow">Six services</span>
+      <h2>Six ways we walk <em>with</em> you.</h2>
+      <p>Choose a published group circuit, or commission a private journey. Either way, the same guides, the same monasteries, the same care.</p>
     </div>
-  </div>
-</section>
 
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head">
-      <span class="kicker">Three quiet promises</span>
-      <h2>The way we work, every journey.</h2>
-    </div>
-    <div class="promise-grid">
-      <div class="promise">
-        <div class="promise-num">01</div>
-        <h3>One coordinator</h3>
-        <p>You'll have one person from booking to return — not a call centre. They know your group, your dates, and your needs.</p>
+    <div class="svc-grid">
+
+      <div class="svc-card">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="20" r="5"/><circle cx="32" cy="20" r="5"/><path d="M8 38 c0-5 4-9 8-9 s8 4 8 9"/><path d="M24 38 c0-5 4-9 8-9 s8 4 8 9"/></svg>
+        <span class="svc-tag">Group circuits · scheduled</span>
+        <h3>Published pilgrimage circuits</h3>
+        <p>Join a small group of twelve on one of our five regular departures — India, Ladakh, Sri Lanka, Japan or Bhutan. All-inclusive pricing, twin-share rooms, scholar-guide throughout.</p>
+        <ul>
+          <li>Five departures across the calendar</li>
+          <li>Maximum twelve pilgrims per group</li>
+          <li>Pre-trip dharma reading &amp; weekly online sessions</li>
+        </ul>
+        <div class="svc-foot">
+          <span class="from">From <strong>USD 3,200</strong></span>
+          <a href="tours.html" class="arrow">View circuits →</a>
+        </div>
       </div>
-      <div class="promise">
-        <div class="promise-num">02</div>
-        <h3>Honest pricing</h3>
-        <p>What's included is itemised. What's not is named. No surprise fees, no surcharge negotiations on the road.</p>
+
+      <div class="svc-card">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 36 L24 8 L40 36 Z"/><circle cx="24" cy="24" r="2.5" fill="currentColor"/></svg>
+        <span class="svc-tag">Private · bespoke</span>
+        <h3>Private bespoke pilgrimages</h3>
+        <p>A circuit designed for your family, sangha, or close friends. Choose the route, the pace, the season. We commission a guide and write the itinerary from scratch — usually 6–10 weeks of planning.</p>
+        <ul>
+          <li>Family groups, sanghas, study circles</li>
+          <li>Choose dates, route, accommodation grade</li>
+          <li>Dedicated planner from enquiry to return</li>
+        </ul>
+        <div class="svc-foot">
+          <span class="from">From <strong>USD 6,800</strong> per pilgrim</span>
+          <a href="#contact" class="arrow">Enquire →</a>
+        </div>
       </div>
-      <div class="promise">
-        <div class="promise-num">03</div>
-        <h3>Quiet care</h3>
-        <p>We anticipate small needs before you ask. Tea when it's cold. Shade when it's hot. Quiet when the temple asks for it.</p>
+
+      <div class="svc-card">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="36" height="22" rx="2"/><path d="M14 14 v-4 M34 14 v-4 M6 22 H42"/></svg>
+        <span class="svc-tag">Corporate · institutional</span>
+        <h3>Corporate dharma retreats</h3>
+        <p>Multi-day silent retreats for leadership teams, designed with a senior teacher. Bodhgaya, Hemis or Eihei-ji as the venue. Includes pre-retreat practice instruction and post-retreat integration.</p>
+        <ul>
+          <li>Teams of 6–24 leaders</li>
+          <li>Three to seven nights, residential</li>
+          <li>Senior teacher with corporate experience</li>
+        </ul>
+        <div class="svc-foot">
+          <span class="from">From <strong>USD 38,000</strong> per retreat</span>
+          <a href="#contact" class="arrow">Enquire →</a>
+        </div>
       </div>
+
+      <div class="svc-card">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="14"/><path d="M24 10 V38 M10 24 H38"/></svg>
+        <span class="svc-tag">Single-place · short stay</span>
+        <h3>Bodhgaya residencies</h3>
+        <p>Three to fourteen nights at our partner monastery in Bodhgaya. Daily teachings, supervised meditation, walks to the Mahabodhi Temple at dawn. Suited to practitioners of any tradition.</p>
+        <ul>
+          <li>Year-round, 3–14 nights</li>
+          <li>Modest monastery accommodation</li>
+          <li>Resident teacher in English &amp; Hindi</li>
+        </ul>
+        <div class="svc-foot">
+          <span class="from">From <strong>USD 950</strong> for 3 nights</span>
+          <a href="#contact" class="arrow">Enquire →</a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12 h24 v24 h-24 z"/><path d="M18 20 h12 M18 26 h12 M18 32 h6"/></svg>
+        <span class="svc-tag">Scholarly · academic</span>
+        <h3>Academic field study tours</h3>
+        <p>Curated tours for university Buddhist studies departments, with curated archive access at Nalanda, the Tibetan Higher Studies Institute, and Eihei-ji. Designed in collaboration with the host faculty.</p>
+        <ul>
+          <li>10–20 students plus faculty</li>
+          <li>Archive &amp; library access included</li>
+          <li>Lecture series with resident scholars</li>
+        </ul>
+        <div class="svc-foot">
+          <span class="from">From <strong>USD 2,400</strong> per student</span>
+          <a href="#contact" class="arrow">Enquire →</a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="14"/><path d="M24 14 V24 L32 28"/></svg>
+        <span class="svc-tag">Returning pilgrim · advisory</span>
+        <h3>Pilgrimage advisory &amp; coaching</h3>
+        <p>For pilgrims who have walked with us before, and now plan an independent journey. A six-week coaching engagement: route review, monastery introductions, packing &amp; visa support, on-call backup.</p>
+        <ul>
+          <li>Six weeks of weekly calls</li>
+          <li>Monastery letters of introduction</li>
+          <li>24-hour on-call line during travel</li>
+        </ul>
+        <div class="svc-foot">
+          <span class="from">From <strong>USD 1,800</strong> per pilgrim</span>
+          <a href="#contact" class="arrow">Enquire →</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section class="section section-dark">
-  <div class="container" style="text-align:center;max-width:680px">
-    <span class="kicker kicker-light">Ready to begin?</span>
-    <h2>Tell us a little about your group.</h2>
-    <p class="lede">A pilgrimage is a relationship long before it's a trip. Write to us — we'll write back the same day.</p>
-    <div style="margin-top:32px">
-      <a href="index.html#contact" class="btn btn-primary">Start the conversation</a>
+<section class="guides">
+  <div class="container">
+    <div class="section-head-page">
+      <span class="eyebrow on-dark">Our guides</span>
+      <h2>Trained where the dharma lives.</h2>
+      <p>Every circuit is led by a guide formed inside the tradition — Nalanda, Drepung, Komazawa. They do not perform the dharma; they live it, and let pilgrims walk beside them.</p>
     </div>
+    <div class="guides-grid">
+      <div class="guide-card">
+        <div class="guide-img" style="background-image:url('bodhgaya-monks-teaching.jpeg');"></div>
+        <div class="guide-body">
+          <h3 class="guide-name">Ven. Tenzin Norbu</h3>
+          <div class="guide-role">Lead guide · India circuit</div>
+          <p class="guide-bio">Twenty-two years of monastic training at Drepung Loseling. Leads our India circuit and the Bodhgaya residencies. Fluent in Tibetan, Hindi, English and Sanskrit.</p>
+        </div>
+      </div>
+      <div class="guide-card">
+        <div class="guide-img" style="background-image:url('kushinagar-temple.jpeg');"></div>
+        <div class="guide-body">
+          <h3 class="guide-name">Aiko Tanaka-roshi</h3>
+          <div class="guide-role">Lead guide · Zen Japan</div>
+          <p class="guide-bio">Sōtō Zen priest, ten years training at Eihei-ji. Leads the Japan circuit and corporate retreats in Kyoto. Trained translator, English and German.</p>
+        </div>
+      </div>
+      <div class="guide-card">
+        <div class="guide-img" style="background-image:url('sarnath-dhamek-pilgrims.jpeg');"></div>
+        <div class="guide-body">
+          <h3 class="guide-name">Lobzang Wangchuk</h3>
+          <div class="guide-role">Lead guide · Himalayan Vajrayana</div>
+          <p class="guide-bio">Born in Lamayuru, ordained at Hemis at fourteen, secular guide-trained in Leh. Leads the Ladakh circuit each summer; runs winter teachings at Bodhgaya.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container">
+    <div class="section-head-page">
+      <span class="eyebrow">How a journey is made</span>
+      <h2>Four steps, six weeks.</h2>
+      <p>Whether you join a published circuit or commission a private one, the path from first enquiry to first morning at the temple looks the same.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-step">
+        <h3>Conversation</h3>
+        <p>A 30-minute call with the planner who will hold your journey end-to-end. We ask about practice, group, season, and what is calling.</p>
+      </div>
+      <div class="proc-step">
+        <h3>Draft itinerary</h3>
+        <p>Within two working days, a draft itinerary — places, pace, monasteries, costs. Iterated with you until the route feels right.</p>
+      </div>
+      <div class="proc-step">
+        <h3>Pre-trip practice</h3>
+        <p>Six weeks of weekly online sessions with your scholar-guide. Reading list, sutra study, and travel logistics together in one call.</p>
+      </div>
+      <div class="proc-step">
+        <h3>The walk</h3>
+        <p>You arrive in Bodhgaya. We take care of everything — transport, monasteries, meals, donations — so you can simply walk and sit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <div class="section-head-page">
+      <span class="eyebrow">Frequently asked</span>
+      <h2>Practical matters.</h2>
+      <p>The questions every pilgrim asks. If yours isn't here, write to us and we will answer within two working days.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Do I need to be Buddhist to join a circuit?</summary>
+        <p>No. Roughly half of our pilgrims are not Buddhist by formal commitment. The places we visit and the teachers we walk with welcome anyone who comes with respect and a willingness to listen. The pre-trip reading we provide makes the experience much richer regardless of your starting point.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How physically demanding are the circuits?</summary>
+        <p>The India and Sri Lanka circuits are easy — short walks of 1–3 km a day, mostly flat. The Ladakh circuit involves altitudes of 3500–5300m and requires reasonable fitness. The Japan circuit includes seated meditation periods of 30–45 minutes. We are happy to discuss your specific situation before booking.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What is included in the price?</summary>
+        <p>All accommodation (twin share, boutique heritage stays), all meals, all ground transport, scholar-guide throughout, monastery donations, teaching fees, entrance fees, visa support and travel insurance briefing. Not included: international flights, personal travel insurance, alcohol, optional extra activities.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I extend the trip with personal travel?</summary>
+        <p>Yes. Many pilgrims extend with a few days in Delhi, the Taj Mahal in Agra, or Kerala backwaters in the south. We are happy to arrange these extensions through our trusted partners — billed separately from the circuit.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if I need to cancel?</summary>
+        <p>Full refund up to 90 days before departure. 50% refund up to 60 days. We strongly recommend comprehensive travel insurance covering trip cancellation. We are happy to make a single date-change at no charge if circumstances require.</p>
+      </details>
+    </div>
+  </div>
+</section>
+<section class="contact" id="contact">
+  <div class="container contact-inner">
+    <div class="contact-left">
+      <span class="eyebrow on-dark">Connect with us</span>
+      <h2>Begin a conversation about your journey.</h2>
+      <p>Whether you are planning a private pilgrimage, a small group retreat, or a corporate dharma circuit — reach us directly. We answer every enquiry within two working days, in the order it arrives.</p>
+      <a class="contact-phone-card" href="tel:+918797059656">
+        <span class="lbl">Speak to us · IST 09:00–19:00</span>
+        <span class="num">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          +91&nbsp;87970&nbsp;59656
+        </span>
+        <span class="hint">Click to call — or WhatsApp the same number.</span>
+      </a>
+      <div class="contact-extra">
+        Write to <a href="mailto:walk@bodhidragon.com">walk@bodhidragon.com</a><br>
+        Office · Temple Road, Bodhgaya, Bihar 824231 · India
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="event.preventDefault();this.classList.add('sent');this.querySelector('button').textContent='Received with thanks — we will write back soon';">
+      <label>Name <span class="req">*</span><input type="text" name="name" required placeholder="Your full name"></label>
+      <label>Email <span class="req">*</span><input type="email" name="email" required placeholder="you@example.com"></label>
+      <label>Phone <span class="req">*</span><input type="tel" name="phone" required placeholder="+country&nbsp;number"></label>
+      <label>Service<select name="service"><option>Group circuit</option><option>Private pilgrimage</option><option>Corporate retreat</option><option>Bespoke itinerary</option></select></label>
+      <label class="field-full">Message <span class="req">*</span><textarea name="message" required placeholder="Tell us about the journey you have in mind."></textarea></label>
+      <div class="contact-foot">
+        <span class="privacy">Your details stay with us · never shared</span>
+        <button type="submit">Send message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+      </div>
+    </form>
   </div>
 </section>
 
 <footer class="site-footer">
-  <div class="container footer-row">
-    <div>
-      <a href="index.html" class="brand brand-light">
-        <span class="brand-mark">❖</span>
-        <span class="brand-text"><strong>BODHI</strong><small>TOUR AND TRAVEL</small></span>
-      </a>
-      <p>Mindful pilgrimage across India and Nepal. Crafted with care since 2013.</p>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-word">
+            <span class="lw-1">BODHI</span>
+            <span class="lw-2">Tour and Travel</span>
+          </span>
+        </a>
+        <p class="foot-tagline">Sacred journeys through Buddhist heartlands. <em>Experience the world anew.</em></p>
+        <address class="foot-addr">
+          Temple Road, Bodhgaya<br>
+          Bihar 824231 · India<br>
+          +91 87970 59656<br>
+          walk@bodhidragon.com
+        </address>
+      </div>
+      <div class="foot-col">
+        <h4>Journeys</h4>
+        <ul>
+          <li><a href="tours.html">India Buddhist Circuit</a></li>
+          <li><a href="tours.html">Himalayan Vajrayana</a></li>
+          <li><a href="tours.html">Zen Japan</a></li>
+          <li><a href="tours.html">Sacred calendar</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Places</h4>
+        <ul>
+          <li><a href="places.html#bihar">Bodhgaya</a></li>
+          <li><a href="places.html#up">Sarnath</a></li>
+          <li><a href="places.html#nepal">Lumbini</a></li>
+          <li><a href="places.html#up">Kushinagar</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Bodhi</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">Field notes</a></li>
+          <li><a href="services.html">Our guides</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <h4>Visit</h4>
-      <ul>
-        <li><a href="places.html">Sacred Sites</a></li>
-        <li><a href="tours.html">Tours</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="blog.html">Field Notes</a></li>
-      </ul>
+    <div class="foot-bottom">
+      <span>© 2026 Bodhi · Tour and Travel · Bodhgaya</span>
+      <span>Experience the world anew</span>
     </div>
-    <div>
-      <h4>Contact</h4>
-      <ul>
-        <li>+91 87970 59656</li>
-        <li>hello@bodhitourandtravel.com</li>
-        <li>Bodhgaya, Bihar, India</li>
-      </ul>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <small>© 2026 Bodhi Dragon Tour and Travel. All rights reserved.</small>
   </div>
 </footer>
 
