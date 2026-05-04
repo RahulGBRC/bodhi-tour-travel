@@ -293,3 +293,23 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
   .contact-form button{width:100%;justify-content:center}
   .foot-bottom{flex-direction:column;gap:12px;align-items:flex-start}
      }
+
+
+
+/* ========== HEADER SAFFRON OVERRIDE (v4) ========== */
+.nav{background:var(--color-saffron) !important;border-bottom:1px solid rgba(255,255,255,0.18) !important;box-shadow:inset 0 -1px 0 rgba(0,0,0,0.06) !important}
+.nav .logo{color:#fff !important}
+.nav .logo .logo-word .lw-1{color:#fff !important}
+.nav .logo .logo-word .lw-2{color:#fff !important}
+.nav .logo img{height:56px !important;width:auto !important;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.25)) !important}
+.nav-links a{color:rgba(255,255,255,0.92) !important}
+.nav-links a::after{background:#fff !important}
+.nav-links a:hover{color:#fff !important}
+.nav-links a.active{color:#fff !important}
+.nav-links a.active::after{background:#fff !important;width:100% !important}
+.nav .btn-primary{background:#fff !important;color:var(--color-saffron) !important}
+.nav .btn-primary:hover{background:var(--color-dharma-gold) !important;color:var(--color-monk-brown) !important}
+.nav-toggle{color:#fff !important}
+.mobile-menu{background:var(--color-saffron-600) !important}
+.mobile-menu a{color:#fff !important;border-bottom-color:rgba(255,255,255,0.2) !important}
+.mobile-menu a.active{color:var(--color-dharma-gold) !important}
