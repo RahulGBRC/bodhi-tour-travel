@@ -206,12 +206,12 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
 <!-- TABS -->
 <nav class="tabbar" aria-label="Filter places">
   <div class="tabbar-inner">
-    <a href="#all" class="tab active">All sites <span class="count">20</span></a>
-    <a href="#eight" class="tab">Eight great places <span class="count">8</span></a>
-    <a href="#bihar" class="tab">Bihar circuit <span class="count">9</span></a>
-    <a href="#up" class="tab">Uttar Pradesh <span class="count">5</span></a>
-    <a href="#nepal" class="tab">Nepal <span class="count">2</span></a>
-    <a href="#day" class="tab">Day visits <span class="count">7</span></a>
+    <a href="javascript:void(0)" data-filter="all" class="tab active">All sites <span class="count">20</span></a>
+    <a href="javascript:void(0)" data-filter="eight" class="tab">Eight great places <span class="count">8</span></a>
+    <a href="javascript:void(0)" data-filter="bihar" class="tab">Bihar circuit <span class="count">9</span></a>
+    <a href="javascript:void(0)" data-filter="up" class="tab">Uttar Pradesh <span class="count">5</span></a>
+    <a href="javascript:void(0)" data-filter="nepal" class="tab">Nepal <span class="count">2</span></a>
+    <a href="javascript:void(0)" data-filter="day" class="tab">Day visits <span class="count">7</span></a>
   </div>
 </nav>
 
@@ -228,7 +228,7 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
     </div>
     <div class="places-grid">
 
-      <article class="place-card featured">
+      <article class="place-card featured" data-cat="all eight bihar">
         <div class="place-img" style="background-image:url('bodhgaya-mahabodhi-day.jpeg');">
           <span class="place-img-label">Bodhgaya · Bihar</span>
         </div>
@@ -238,13 +238,13 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <div class="place-meta">8 sacred sites within a square mile · 3–5 days</div>
           <p class="place-desc">The single most important place in Buddhism. Beneath a peepal tree on the eastern bank of the Niranjana river, Siddhartha Gautama sat for forty-nine days and woke. The Mahabodhi Temple — first built by Ashoka in the 3rd century BCE, rebuilt in stone in the Gupta period — still stands over the Vajrasana, the diamond throne. Around it: the Animesh Lochana stupa where the Buddha gazed unblinking at the bodhi tree in gratitude, the Ratnachakrama meditation walk, and the great seated Buddha statue gifted by Daijokyo of Japan. We base every Indian circuit here.</p>
           <div class="place-foot">
-            <a href="#" class="place-link">Read full guide</a>
+            <a href="place-bodhgaya-mahabodhi.html" class="place-link">Read full guide</a>
             <span class="stars">★★★★★</span>
           </div>
         </div>
       </article>
 
-      <article class="place-card half">
+      <article class="place-card half" data-cat="all bihar day">
         <div class="place-img" style="background-image:url('bodhi-tree-bodhgaya.jpeg');">
           <span class="place-img-label">Bodhgaya · Sacred site</span>
         </div>
@@ -253,13 +253,13 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <h3 class="place-name">The Bodhi Tree</h3>
           <p class="place-desc">A direct descendant, by sapling, of the original tree under which the Buddha awakened. Pilgrims tie prayer cloths to its branches at dawn; saffron monks circumambulate from before sunrise.</p>
           <div class="place-foot">
-            <a href="#" class="place-link">Read more</a>
+            <a href="place-bodhi-tree.html" class="place-link">Read more</a>
             <span class="stars">★★★★★</span>
           </div>
         </div>
       </article>
 
-      <article class="place-card half">
+      <article class="place-card half" data-cat="all bihar day">
         <div class="place-img" style="background-image:url('bodhgaya-great-buddha.jpeg');">
           <span class="place-img-label">Bodhgaya · 25m statue</span>
         </div>
@@ -268,13 +268,13 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <h3 class="place-name">Great Buddha statue</h3>
           <p class="place-desc">Gifted by the Japanese Daijokyo Buddhist Society in 1989. Sandstone and red granite, twenty-five metres high, visible from across the town. A short stop, but a still one.</p>
           <div class="place-foot">
-            <a href="#" class="place-link">Read more</a>
+            <a href="place-great-buddha-statue.html" class="place-link">Read more</a>
             <span class="stars">★★★★☆</span>
           </div>
         </div>
       </article>
 
-      <article class="place-card half">
+      <article class="place-card half" data-cat="all eight bihar">
         <div class="place-img" style="background-image:url('nalanda-xuanzang.jpeg');">
           <span class="place-img-label">Rajgir · Bihar</span>
         </div>
@@ -283,13 +283,13 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <h3 class="place-name">Rajgir &amp; Vulture's Peak</h3>
           <p class="place-desc">Capital of the Magadha kingdom under Bimbisara. The Buddha taught here for many rains retreats — the Heart Sutra was given on Vulture's Peak. Hot springs, the bamboo grove, the first council cave.</p>
           <div class="place-foot">
-            <a href="#" class="place-link">Read more</a>
+            <a href="place-rajgir-vultures-peak.html" class="place-link">Read more</a>
             <span class="stars">★★★★★</span>
           </div>
         </div>
       </article>
 
-      <article class="place-card half">
+      <article class="place-card half" data-cat="all eight bihar">
         <div class="place-img" style="background-image:url('nalanda-xuanzang.jpeg');">
           <span class="place-img-label">Nalanda · Bihar</span>
         </div>
@@ -298,13 +298,13 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <h3 class="place-name">Nalanda Mahavihara</h3>
           <p class="place-desc">The world's oldest university (5th–12th c.). Where Xuanzang studied for five years. Its red-brick stupas and viharas are still being excavated — walk where 10,000 monks once lived.</p>
           <div class="place-foot">
-            <a href="#" class="place-link">Read more</a>
+            <a href="place-nalanda.html" class="place-link">Read more</a>
             <span class="stars">★★★★★</span>
           </div>
         </div>
       </article>
 
-      <article class="place-card third">
+      <article class="place-card third" data-cat="all eight bihar">
         <div class="place-img" style="background-image:url('vaishali-ashoka-pillar.jpeg');">
           <span class="place-img-label">Vaishali · Bihar</span>
         </div>
@@ -312,11 +312,11 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <span class="place-tag">Eight great places · 6th c. BCE</span>
           <h3 class="place-name">Vaishali</h3>
           <p class="place-desc">Where the Buddha announced his approaching parinirvana, where Ananda was ordained, and where the Second Buddhist Council was held. The Ashokan lion pillar still stands.</p>
-          <div class="place-foot"><a href="#" class="place-link">Read more</a><span class="stars">★★★★☆</span></div>
+          <div class="place-foot"><a href="place-vaishali.html" class="place-link">Read more</a><span class="stars">★★★★☆</span></div>
         </div>
       </article>
 
-      <article class="place-card third">
+      <article class="place-card third" data-cat="all bihar day">
         <div class="place-img" style="background-image:url('kesariya-stupa-monks.jpeg');">
           <span class="place-img-label">Kesariya · Bihar</span>
         </div>
@@ -324,11 +324,11 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <span class="place-tag">Stupa complex · half day</span>
           <h3 class="place-name">Relic Stupa, Vaishali</h3>
           <p class="place-desc">One of eight original stupas built to enshrine the Buddha's relics after his parinirvana — and one of only two whose contents have been verified.</p>
-          <div class="place-foot"><a href="#" class="place-link">Read more</a><span class="stars">★★★★☆</span></div>
+          <div class="place-foot"><a href="place-kesariya-stupa.html" class="place-link">Read more</a><span class="stars">★★★★☆</span></div>
         </div>
       </article>
 
-      <article class="place-card third">
+      <article class="place-card third" data-cat="all bihar day">
         <div class="place-img" style="background-image:url('bodhgaya-monks-teaching.jpeg');">
           <span class="place-img-label">Bodhgaya · monasteries</span>
         </div>
@@ -336,7 +336,7 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <span class="place-tag">Walking distance · 2–3 hours</span>
           <h3 class="place-name">Monastery row</h3>
           <p class="place-desc">Thirty international monasteries — Thai, Bhutanese, Japanese, Vietnamese, Tibetan — line the road from the temple. Each open to respectful visitors.</p>
-          <div class="place-foot"><a href="#" class="place-link">Read more</a><span class="stars">★★★★☆</span></div>
+          <div class="place-foot"><a href="place-monastery-row.html" class="place-link">Read more</a><span class="stars">★★★★☆</span></div>
         </div>
       </article>
 
@@ -357,7 +357,7 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
     </div>
     <div class="places-grid">
 
-      <article class="place-card featured">
+      <article class="place-card featured" data-cat="all eight up">
         <div class="place-img" style="background-image:url('sarnath-dhamek.jpeg');">
           <span class="place-img-label">Sarnath · UP</span>
         </div>
@@ -367,13 +367,13 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <div class="place-meta">10 km from Varanasi · 1–2 days</div>
           <p class="place-desc">Seven weeks after his awakening, the Buddha walked to the deer park at Isipatana and gave his first teaching to the five ascetics — the Dhammacakkappavattana Sutta, the turning of the wheel of dharma. The Dhamek Stupa, 43 metres of pale brick rising from a flat plain, marks the spot. Around it: the Mulagandhakuti vihara, the Ashoka Pillar (whose lion capital is now India's national emblem), and a museum holding the Sarnath Buddha — arguably the finest Buddha statue ever carved.</p>
           <div class="place-foot">
-            <a href="#" class="place-link">Read full guide</a>
+            <a href="place-sarnath-dhamek.html" class="place-link">Read full guide</a>
             <span class="stars">★★★★★</span>
           </div>
         </div>
       </article>
 
-      <article class="place-card half">
+      <article class="place-card half" data-cat="all up day">
         <div class="place-img" style="background-image:url('sarnath-buddha-throne.jpeg');">
           <span class="place-img-label">Sarnath Museum</span>
         </div>
@@ -381,11 +381,11 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <span class="place-tag">Sculpture · 5th c. CE</span>
           <h3 class="place-name">The Sarnath Buddha</h3>
           <p class="place-desc">A sandstone Buddha in the dharmachakra mudra, Gupta period. Often called the most perfect Buddha image ever made — held in the Sarnath Museum, ten minutes from the deer park.</p>
-          <div class="place-foot"><a href="#" class="place-link">Read more</a><span class="stars">★★★★★</span></div>
+          <div class="place-foot"><a href="place-sarnath-buddha.html" class="place-link">Read more</a><span class="stars">★★★★★</span></div>
         </div>
       </article>
 
-      <article class="place-card half">
+      <article class="place-card half" data-cat="all up day">
         <div class="place-img" style="background-image:url('sarnath-dhamek-pilgrims.jpeg');">
           <span class="place-img-label">Sarnath · sangha</span>
         </div>
@@ -393,11 +393,11 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <span class="place-tag">Living sangha · 2 hr</span>
           <h3 class="place-name">International monasteries</h3>
           <p class="place-desc">Thai, Burmese, Tibetan, Sri Lankan and Japanese viharas surround the ancient site. The Tibetan Higher Studies Institute is here — open to respectful visitors most afternoons.</p>
-          <div class="place-foot"><a href="#" class="place-link">Read more</a><span class="stars">★★★★☆</span></div>
+          <div class="place-foot"><a href="place-sarnath-monasteries.html" class="place-link">Read more</a><span class="stars">★★★★☆</span></div>
         </div>
       </article>
 
-      <article class="place-card half">
+      <article class="place-card half" data-cat="all eight up">
         <div class="place-img" style="background-image:url('kushinagar-reclining.jpeg');">
           <span class="place-img-label">Kushinagar · UP</span>
         </div>
@@ -405,11 +405,11 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <span class="place-tag">Eight great places · Parinirvana</span>
           <h3 class="place-name">Kushinagar — the reclining Buddha</h3>
           <p class="place-desc">Where the Buddha lay down between two sal trees and entered parinirvana, instructing his disciples to "be lamps unto yourselves." A 6m reclining Buddha in red sandstone marks the place. The quietest of the eight.</p>
-          <div class="place-foot"><a href="#" class="place-link">Read more</a><span class="stars">★★★★★</span></div>
+          <div class="place-foot"><a href="place-kushinagar-reclining.html" class="place-link">Read more</a><span class="stars">★★★★★</span></div>
         </div>
       </article>
 
-      <article class="place-card half">
+      <article class="place-card half" data-cat="all up day">
         <div class="place-img" style="background-image:url('kushinagar-stupa.jpeg');">
           <span class="place-img-label">Kushinagar · cremation</span>
         </div>
@@ -417,11 +417,11 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <span class="place-tag">Cremation stupa · 1 hour</span>
           <h3 class="place-name">Ramabhar Stupa</h3>
           <p class="place-desc">The cremation place of the Buddha, a vast brick mound fifty metres across. Monks circumambulate at dusk; the field is silent enough to hear the prayer flags.</p>
-          <div class="place-foot"><a href="#" class="place-link">Read more</a><span class="stars">★★★★☆</span></div>
+          <div class="place-foot"><a href="place-ramabhar-stupa.html" class="place-link">Read more</a><span class="stars">★★★★☆</span></div>
         </div>
       </article>
 
-      <article class="place-card half">
+      <article class="place-card half" data-cat="all up day">
         <div class="place-img" style="background-image:url('varanasi-ganga-evening.jpeg');">
           <span class="place-img-label">Varanasi · UP</span>
         </div>
@@ -429,7 +429,7 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <span class="place-tag">Companion city · 1 night</span>
           <h3 class="place-name">Varanasi at dawn</h3>
           <p class="place-desc">A boat at first light, the cremation ghats, the Vishwanath alleys. Not Buddhist, but the city the Buddha walked through to reach Sarnath. Paired with every UP itinerary we run.</p>
-          <div class="place-foot"><a href="#" class="place-link">Read more</a><span class="stars">★★★★★</span></div>
+          <div class="place-foot"><a href="place-varanasi-dawn.html" class="place-link">Read more</a><span class="stars">★★★★★</span></div>
         </div>
       </article>
 
@@ -450,7 +450,7 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
     </div>
     <div class="places-grid">
 
-      <article class="place-card featured">
+      <article class="place-card featured" data-cat="all eight nepal">
         <div class="place-img" style="background-image:url('lumbini-mayadevi-wide.jpeg');">
           <span class="place-img-label">Lumbini · Nepal</span>
         </div>
@@ -460,13 +460,13 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <div class="place-meta">2 days · cross at Sonauli border</div>
           <p class="place-desc">In a peaceful walled garden in the Terai lowlands of Nepal, beside a sacred pond and an ancient sal tree, Queen Maya is said to have given birth to Siddhartha Gautama in the year 563 BCE. The Maya Devi Temple shelters the marker stone identifying the exact spot — verified in 1896 by the Ashokan pillar standing nearby, whose inscription reads simply: "Here the Buddha was born." The Lumbini Development Zone, designed by Kenzō Tange, hosts monasteries from every Buddhist tradition.</p>
           <div class="place-foot">
-            <a href="#" class="place-link">Read full guide</a>
+            <a href="place-lumbini-mayadevi.html" class="place-link">Read full guide</a>
             <span class="stars">★★★★★</span>
           </div>
         </div>
       </article>
 
-      <article class="place-card half">
+      <article class="place-card half" data-cat="all nepal day">
         <div class="place-img" style="background-image:url('lumbini-buddha-pond.jpeg');">
           <span class="place-img-label">Lumbini · garden</span>
         </div>
@@ -474,11 +474,11 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <span class="place-tag">Sacred garden &amp; pillar · half day</span>
           <h3 class="place-name">The Puskarini pond &amp; Ashokan pillar</h3>
           <p class="place-desc">The pond where Maya bathed; the ancient sal tree; the Ashokan pillar with its 3rd-c. BCE inscription. Walked slowly, in the order Ashoka himself walked it.</p>
-          <div class="place-foot"><a href="#" class="place-link">Read more</a><span class="stars">★★★★★</span></div>
+          <div class="place-foot"><a href="place-puskarini-pond.html" class="place-link">Read more</a><span class="stars">★★★★★</span></div>
         </div>
       </article>
 
-      <article class="place-card half">
+      <article class="place-card half" data-cat="all nepal day">
         <div class="place-img" style="background-image:url('lumbini-bodhisattva-statue.jpeg');">
           <span class="place-img-label">Lumbini · monastic zone</span>
         </div>
@@ -486,7 +486,7 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
           <span class="place-tag">Cycle rickshaw tour · 3 hours</span>
           <h3 class="place-name">Monastic Zone</h3>
           <p class="place-desc">Thirty monasteries from every Buddhist country — Korean, German, French, Cambodian, Vietnamese — built around a central canal in the Tange master plan. A morning cycle through them is part of every Lumbini stay.</p>
-          <div class="place-foot"><a href="#" class="place-link">Read more</a><span class="stars">★★★★☆</span></div>
+          <div class="place-foot"><a href="place-lumbini-monastic-zone.html" class="place-link">Read more</a><span class="stars">★★★★☆</span></div>
         </div>
       </article>
 
@@ -549,54 +549,87 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="index.html" class="logo">
-          <span class="logo-word">
-            <span class="lw-1">BODHI</span>
-            <span class="lw-2">Tour and Travel</span>
-          </span>
+        <a href="index.html" class="logo" aria-label="Bodhi — Tour and Travel home">
+          <span class="logo-word"><span class="lw-1">BODHI</span><span class="lw-2">Tour and Travel</span></span>
         </a>
-        <p class="foot-tagline">Sacred journeys through Buddhist heartlands. <em>Experience the world anew.</em></p>
+        <p class="foot-tagline">Sacred journeys through Buddhist heartlands. <em style="font-style:italic;color:rgba(255,255,255,0.6);">Experience the world anew.</em></p>
         <address class="foot-addr">
-          Temple Road, Bodhgaya<br>
-          Bihar 824231 · India<br>
-          +91 87970 59656<br>
-          walk@bodhidragon.com
+          Temple Road, Bodhgaya<br>Bihar 824231 · India<br>+91 87970 59656<br>
+          <a href="mailto:walk@bodhidragon.com" style="color:var(--color-dharma-gold);">walk@bodhidragon.com</a>
         </address>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/bodhidragontravel" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+          <a href="https://www.youtube.com/@bodhidragontravel" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9 L16 12 L10 15 Z" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/bodhidragontravel" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22 V13 h3 l0.5 -4 H14 V7 c0-1.2.5-2 2-2 h2 V1.5 C17 1.2 15.7 1 14.5 1 c-3 0-5 1.8-5 5 v3 H6 v4 h3.5 V22"/></svg></a>
+          <a href="https://x.com/bodhidragon" target="_blank" rel="noopener" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 3H21l-7.4 8.45L22.5 21h-7.1l-5.55-7.05L3.5 21H.1l7.95-9.05L0 3h7.3l5 6.6L17.6 3zm-1.25 16h1.95L7.85 5H5.75l10.6 14z"/></svg></a>
+        </div>
       </div>
       <div class="foot-col">
         <h4>Journeys</h4>
         <ul>
-          <li><a href="tours.html">India Buddhist Circuit</a></li>
-          <li><a href="tours.html">Himalayan Vajrayana</a></li>
-          <li><a href="tours.html">Zen Japan</a></li>
+          <li><a href="tour-india-buddhist-circuit.html">India Buddhist Circuit</a></li>
+          <li><a href="tour-himalayan-vajrayana.html">Himalayan Vajrayana</a></li>
+          <li><a href="tour-zen-japan.html">Zen Japan</a></li>
+          <li><a href="tours.html">All circuits</a></li>
           <li><a href="tours.html">Sacred calendar</a></li>
         </ul>
       </div>
       <div class="foot-col">
         <h4>Places</h4>
         <ul>
-          <li><a href="places.html#bihar">Bodhgaya</a></li>
-          <li><a href="places.html#up">Sarnath</a></li>
-          <li><a href="places.html#nepal">Lumbini</a></li>
-          <li><a href="places.html#up">Kushinagar</a></li>
+          <li><a href="place-bodhgaya-mahabodhi.html">Bodhgaya</a></li>
+          <li><a href="place-sarnath-dhamek.html">Sarnath</a></li>
+          <li><a href="place-lumbini-mayadevi.html">Lumbini</a></li>
+          <li><a href="place-kushinagar-reclining.html">Kushinagar</a></li>
+          <li><a href="places.html">All places</a></li>
         </ul>
       </div>
       <div class="foot-col">
-        <h4>Bodhi</h4>
+        <h4>Bodhi Dragon</h4>
         <ul>
           <li><a href="services.html">Services</a></li>
           <li><a href="blog.html">Field notes</a></li>
-          <li><a href="services.html">Our guides</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="services.html#guides">Our guides</a></li>
+          <li><a href="services.html#contact">Contact</a></li>
+          <li><a href="services.html">Travel guidance</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Bodhi · Tour and Travel · Bodhgaya</span>
-      <span>Experience the world anew</span>
+      <span>© 2026 Bodhi Dragon · Bodhgaya, India</span>
+      <span>Made with care · all journeys carbon-disclosed</span>
     </div>
   </div>
 </footer>
 
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.tabbar .tab');
+  var cards=document.querySelectorAll('.place-card');
+  var regions=document.querySelectorAll('section.region');
+  function apply(f){
+    cards.forEach(function(c){
+      var cats=(c.getAttribute('data-cat')||'').split(' ');
+      c.style.display=(f==='all'||cats.indexOf(f)>-1)?'':'none';
+    });
+    regions.forEach(function(r){
+      var vis=r.querySelector('.place-card:not([style*="display: none"])');
+      // recompute: any visible card?
+      var any=false;
+      r.querySelectorAll('.place-card').forEach(function(c){ if(c.style.display!=='none') any=true; });
+      r.style.display=any?'':'none';
+    });
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(e){
+      e.preventDefault();
+      tabs.forEach(function(x){x.classList.remove('active');});
+      t.classList.add('active');
+      apply(t.getAttribute('data-filter'));
+    });
+  });
+})();
+</script>
 </body>
 </html>

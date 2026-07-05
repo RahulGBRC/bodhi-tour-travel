@@ -199,16 +199,16 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
         <h2>What we're reading <em>this</em> month.</h2>
       </div>
       <nav class="tagbar" aria-label="Filter posts">
-        <a href="#" class="active">All</a>
-        <a href="#">Sutras</a>
-        <a href="#">Pilgrimage diary</a>
-        <a href="#">Practice</a>
-        <a href="#">Place histories</a>
-        <a href="#">Reading lists</a>
+        <a href="javascript:void(0)" data-filter="all" class="active">All</a>
+        <a href="javascript:void(0)" data-filter="sutra">Sutras</a>
+        <a href="javascript:void(0)" data-filter="diary">Pilgrimage diary</a>
+        <a href="javascript:void(0)" data-filter="practice">Practice</a>
+        <a href="javascript:void(0)" data-filter="history">Place histories</a>
+        <a href="javascript:void(0)" data-filter="reading">Reading lists</a>
       </nav>
     </div>
 
-    <article class="featured-post">
+    <article class="featured-post" data-cat="diary">
       <div class="img" style="background-image:url('mahabodhi-temple-pilgrims.jpeg');">
         <span class="badge">Pilgrimage diary</span>
       </div>
@@ -222,14 +222,14 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
             <div class="author-name">Ven. Tenzin Norbu</div>
             <div class="author-title">Lead guide · India circuit</div>
           </div>
-          <a href="#" class="read-more" style="margin-left:auto;">Read full essay →</a>
+          <a href="post-mahabodhi-winter-diary.html" class="read-more" style="margin-left:auto;">Read full essay →</a>
         </div>
       </div>
     </article>
 
     <div class="post-grid">
 
-      <a href="#" class="post-card">
+      <a href="post-first-sermon-sarnath.html" class="post-card" data-cat="sutra">
         <div class="post-img-wrap"><div class="img" style="background-image:url('sarnath-stupa-sunset.jpeg');"></div></div>
         <div class="body">
           <div class="post-meta-mini"><span class="cat">Sutra</span> · 9 min · 2 Apr 2026</div>
@@ -239,7 +239,7 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
         </div>
       </a>
 
-      <a href="#" class="post-card">
+      <a href="post-lumbini-ashokan-pillar.html" class="post-card" data-cat="history">
         <div class="post-img-wrap"><div class="img" style="background-image:url('lumbini-mayadevi-temple.jpeg');"></div></div>
         <div class="body">
           <div class="post-meta-mini"><span class="cat">Place history</span> · 11 min · 18 Mar 2026</div>
@@ -249,7 +249,7 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
         </div>
       </a>
 
-      <a href="#" class="post-card">
+      <a href="post-sitting-at-kushinagar.html" class="post-card" data-cat="practice">
         <div class="post-img-wrap"><div class="img" style="background-image:url('kushinagar-reclining-close.jpeg');"></div></div>
         <div class="body">
           <div class="post-meta-mini"><span class="cat">Practice</span> · 7 min · 4 Mar 2026</div>
@@ -259,7 +259,7 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
         </div>
       </a>
 
-      <a href="#" class="post-card">
+      <a href="post-xuanzang-nalanda.html" class="post-card" data-cat="history">
         <div class="post-img-wrap"><div class="img" style="background-image:url('nalanda-xuanzang.jpeg');"></div></div>
         <div class="body">
           <div class="post-meta-mini"><span class="cat">Place history</span> · 13 min · 21 Feb 2026</div>
@@ -269,7 +269,7 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
         </div>
       </a>
 
-      <a href="#" class="post-card">
+      <a href="post-twelve-books-india.html" class="post-card" data-cat="reading">
         <div class="post-img-wrap"><div class="img" style="background-image:url('rishikesh-ganga-sunset.jpeg');"></div></div>
         <div class="body">
           <div class="post-meta-mini"><span class="cat">Reading list</span> · 6 min · 7 Feb 2026</div>
@@ -279,7 +279,7 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
         </div>
       </a>
 
-      <a href="#" class="post-card">
+      <a href="post-why-start-at-bodhgaya.html" class="post-card" data-cat="diary">
         <div class="post-img-wrap"><div class="img" style="background-image:url('bodhgaya-spire-night-2.jpeg');"></div></div>
         <div class="body">
           <div class="post-meta-mini"><span class="cat">Pilgrimage diary</span> · 12 min · 24 Jan 2026</div>
@@ -345,21 +345,77 @@ footer.site-footer{background:var(--color-monk-brown-900);color:rgba(255,255,255
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="index.html" class="logo">
-          <span class="logo-word">
-            <span class="lw-1">BODHI</span>
-            <span class="lw-2">Tour and Travel</span>
-          </span>
+        <a href="index.html" class="logo" aria-label="Bodhi — Tour and Travel home">
+          <span class="logo-word"><span class="lw-1">BODHI</span><span class="lw-2">Tour and Travel</span></span>
         </a>
-        <p class="foot-tagline">Sacred journeys through Buddhist heartlands. <em>Experience the world anew.</em></p>
-        <address class="foot-addr">Temple Road, Bodhgaya<br>Bihar 824231 · India<br>+91 87970 59656<br>walk@bodhidragon.com</address>
+        <p class="foot-tagline">Sacred journeys through Buddhist heartlands. <em style="font-style:italic;color:rgba(255,255,255,0.6);">Experience the world anew.</em></p>
+        <address class="foot-addr">
+          Temple Road, Bodhgaya<br>Bihar 824231 · India<br>+91 87970 59656<br>
+          <a href="mailto:walk@bodhidragon.com" style="color:var(--color-dharma-gold);">walk@bodhidragon.com</a>
+        </address>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/bodhidragontravel" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+          <a href="https://www.youtube.com/@bodhidragontravel" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9 L16 12 L10 15 Z" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/bodhidragontravel" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22 V13 h3 l0.5 -4 H14 V7 c0-1.2.5-2 2-2 h2 V1.5 C17 1.2 15.7 1 14.5 1 c-3 0-5 1.8-5 5 v3 H6 v4 h3.5 V22"/></svg></a>
+          <a href="https://x.com/bodhidragon" target="_blank" rel="noopener" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 3H21l-7.4 8.45L22.5 21h-7.1l-5.55-7.05L3.5 21H.1l7.95-9.05L0 3h7.3l5 6.6L17.6 3zm-1.25 16h1.95L7.85 5H5.75l10.6 14z"/></svg></a>
+        </div>
       </div>
-      <div class="foot-col"><h4>Journeys</h4><ul><li><a href="tours.html">India Buddhist Circuit</a></li><li><a href="tours.html">Himalayan Vajrayana</a></li><li><a href="tours.html">Zen Japan</a></li><li><a href="tours.html">Sacred calendar</a></li></ul></div>
-      <div class="foot-col"><h4>Places</h4><ul><li><a href="places.html#bihar">Bodhgaya</a></li><li><a href="places.html#up">Sarnath</a></li><li><a href="places.html#nepal">Lumbini</a></li><li><a href="places.html#up">Kushinagar</a></li></ul></div>
-      <div class="foot-col"><h4>Bodhi</h4><ul><li><a href="services.html">Services</a></li><li><a href="blog.html">Field notes</a></li><li><a href="services.html">Our guides</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div class="foot-col">
+        <h4>Journeys</h4>
+        <ul>
+          <li><a href="tour-india-buddhist-circuit.html">India Buddhist Circuit</a></li>
+          <li><a href="tour-himalayan-vajrayana.html">Himalayan Vajrayana</a></li>
+          <li><a href="tour-zen-japan.html">Zen Japan</a></li>
+          <li><a href="tours.html">All circuits</a></li>
+          <li><a href="tours.html">Sacred calendar</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Places</h4>
+        <ul>
+          <li><a href="place-bodhgaya-mahabodhi.html">Bodhgaya</a></li>
+          <li><a href="place-sarnath-dhamek.html">Sarnath</a></li>
+          <li><a href="place-lumbini-mayadevi.html">Lumbini</a></li>
+          <li><a href="place-kushinagar-reclining.html">Kushinagar</a></li>
+          <li><a href="places.html">All places</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Bodhi Dragon</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">Field notes</a></li>
+          <li><a href="services.html#guides">Our guides</a></li>
+          <li><a href="services.html#contact">Contact</a></li>
+          <li><a href="services.html">Travel guidance</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="foot-bottom"><span>© 2026 Bodhi · Tour and Travel · Bodhgaya</span><span>Experience the world anew</span></div>
+    <div class="foot-bottom">
+      <span>© 2026 Bodhi Dragon · Bodhgaya, India</span>
+      <span>Made with care · all journeys carbon-disclosed</span>
+    </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.tagbar a');
+  var feat=document.querySelector('.featured-post');
+  var cards=document.querySelectorAll('.post-card');
+  function apply(f){
+    if(feat){var fc=(feat.getAttribute('data-cat')||'');feat.style.display=(f==='all'||fc===f)?'':'none';}
+    cards.forEach(function(c){var cc=(c.getAttribute('data-cat')||'');c.style.display=(f==='all'||cc===f)?'':'none';});
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(e){
+      e.preventDefault();
+      tabs.forEach(function(x){x.classList.remove('active');});
+      t.classList.add('active');
+      apply(t.getAttribute('data-filter'));
+    });
+  });
+})();
+</script>
 </body>
 </html>
